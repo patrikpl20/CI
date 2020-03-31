@@ -86,7 +86,13 @@ input[type=submit] {
     font-weight: 400;
     border-radius: 200px;
     background-color: #1E824C;
-    border: 1px solid #1E824C
-;
+    border: 1px solid #1E824C;
     color: #fff;
+    transition: background-color 0.2s, border 0.2s, color 0.2s;
+}
+
+input[type=submit]:hover,
+input[type=submit]:active {
+    background-color: #18663c;
+    border: 1px solid #18663c;
 }
