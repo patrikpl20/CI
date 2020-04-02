@@ -31,7 +31,7 @@ html {
 header{
     border-bottom: 1px solid #999;
     padding-bottom: 10px;
-    background-color: #ecf0f1;
+    background-color: #f1f2f6;
     opacity: 98%;
     padding-top: 0.5%;
 }
@@ -104,7 +104,7 @@ input[type=submit]:active {
 
 .loginf {
     width: 30%;
-    background-color: #ecf0f1;
+    background-color: #f1f2f6;
     opacity: 98%;
     margin: 5% auto 0 auto;
     padding: 3% 3% 3% 3%;
@@ -136,7 +136,7 @@ input[type=submit]:active {
 
 .container {
     margin-top: 5%;
-    background-color: #ecf0f1;
+    background-color: #f1f2f6;
     border-radius: 1%;
     width: 60%;
     position: relative;
@@ -163,6 +163,7 @@ input[type=submit]:active {
     margin-left: 15%;
     padding: 1.5% 1%;
     font-size: 140%;
+    letter-spacing: 2px;
     width: 60%;
 }
 
@@ -187,8 +188,9 @@ input[type=submit]:active {
 }
 
 #particles-js {
-height: 100vh;
+height: 100%;
     width: 100%;
 position: absolute;
-background-color: #1E824C;
+    background: #000;
+    background: linear-gradient(45deg, #16854a, #2e86de);
 }
