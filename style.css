@@ -1,3 +1,6 @@
+/* ---------------------- */
+/* BASICS */
+/* ---------------------- */
 html {
     font-family: 'Lato', 'Arial', sans-serif;
 }
@@ -8,16 +11,22 @@ html {
     overflow: hidden;
 }
 
-body {
+.logbody {
     background-image: url(jim-cooke-r6g4GcD6lP0-unsplash.jpg);
     background-size: cover;
     height: 100vh;
 }
 
+
+
 .row {
     max-width: 1140px;
     margin: 0 auto;
 }
+
+/* ---------------------- */
+/* Header */
+/* ---------------------- */
 
 header{
     border-bottom: 1px solid #999;
@@ -39,12 +48,59 @@ header h1 {
     color: #343434;
 }
 
+
 header h2 {
     margin-top: 1%;
     text-align: right;
     font-weight: 500;
     font-size: 110%;
 }
+
+/* ---------------------- */
+/* BUTTONS */
+/* ---------------------- */
+
+input[type=submit] {
+    display: inline-block;
+    background-color: #1E824C;
+    border: 1px solid #1E824C;
+    color: #fff;
+    transition: background-color 0.2s, border 0.2s, color 0.2s;
+}
+
+input[type=submit]:hover,
+input[type=submit]:active {
+    background-color: #18663c;
+    border: 1px solid #18663c;
+}
+
+.logbtn {
+    text-align: center;
+    margin-top: 3%;
+}
+
+.logbtn input[type=submit] {
+    padding: 10px 30px;
+    font-weight: 400;
+    border-radius: 200px;
+}
+
+.ava-btn {
+    text-align: center;
+    margin-top: 3%;
+}
+
+.ava-btn input[type=submit]{
+    margin-bottom: 3%;
+    padding: 2% 6%;
+    border-radius: 200px;
+    font-weight: 600;
+    font-size: 100%;
+}
+
+/* ---------------------- */
+/* Login */
+/* ---------------------- */
 
 .loginf {
     width: 30%;
@@ -66,8 +122,8 @@ header h2 {
     margin-right: auto;
 }
 
-input[type=text],
-input[type=password]{
+.loginf input[type=text],
+.loginf input[type=password]{
     width: 100%;
     padding: 4%;
     margin-bottom: 15px;
@@ -75,24 +131,64 @@ input[type=password]{
     border: 1px solid #eaeaea;
 }
 
-.logbtn {
+
+
+
+.container {
+    margin-top: 5%;
+    background-color: #ecf0f1;
+    border-radius: 1%;
+    width: 60%;
+    position: relative;
+    z-index: 9000;
+    opacity: 100%;
+}
+
+.container h2{
     text-align: center;
+    margin-top: 1.5%;
+    font-size: 170%;
 }
 
-input[type=submit] {
+.container h3 {
     margin-top: 3%;
-    display: inline-block;
-    padding: 10px 30px;
-    font-weight: 400;
-    border-radius: 200px;
-    background-color: #1E824C;
-    border: 1px solid #1E824C;
-    color: #fff;
-    transition: background-color 0.2s, border 0.2s, color 0.2s;
+    letter-spacing: 1px;
+    font-size: 120%;
+    text-transform: uppercase;
+    margin-left: 15%;
 }
 
-input[type=submit]:hover,
-input[type=submit]:active {
-    background-color: #18663c;
-    border: 1px solid #18663c;
+.container input[type=text]{
+    margin-top: 3.5%;
+    margin-left: 15%;
+    padding: 1.5% 1%;
+    font-size: 140%;
+    width: 60%;
+}
+
+.avatar {
+    width: 70%;
+    margin-left: 15%;
+}
+
+.avatar img {
+    width: 50%;
+    height: auto;
+    border-radius: 50%;
+    border: 1px;
+}
+
+.avatar:first-of-type {
+    margin-top: 5%;
+}
+
+.avatar:last-of-type{
+    margin-top: 3%;
+}
+
+#particles-js {
+height: 100vh;
+    width: 100%;
+position: absolute;
+background-color: #1E824C;
 }
