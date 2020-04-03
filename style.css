@@ -191,6 +191,5 @@ input[type=submit]:active {
 height: 100%;
     width: 100%;
 position: absolute;
-    background: #000;
     background: linear-gradient(45deg, #16854a, #2e86de);
 }
