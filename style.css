@@ -9,6 +9,7 @@ html {
     margin: 0;
     padding: 0;
     overflow: hidden;
+    font-family: cursive;
 }
 
 .logbody {
@@ -36,10 +37,10 @@ header h1 {
     font-family: 'MedievalSharp', cursive;
     text-align: center;
     font-weight: 600;
-    font-size: 200%;
+    font-size: 230%;
     text-transform: uppercase;
     letter-spacing: 3px;
-    color: #343434;
+    color: #4a4a4a;
     padding-top: 7%;
 }
 
@@ -62,16 +63,16 @@ header img{
 
 input[type=submit] {
     display: inline-block;
-    background-color: #1E824C;
-    border: 1px solid #1E824C;
+    background-color: #f05c80;
+    border: 1px solid #f05c80;
     color: #fff;
     transition: background-color 0.2s, border 0.2s, color 0.2s;
 }
 
 input[type=submit]:hover,
 input[type=submit]:active {
-    background-color: #18663c;
-    border: 1px solid #18663c;
+    background-color: #ed3d68;
+    border: 1px solid #ed3d68;
 }
 
 .logbtn {
@@ -135,7 +136,7 @@ input[type=submit]:active {
 
 
 .container {
-    margin-top: 5%;
+    margin-top: 4%;
     background-color: #f1f2f6;
     border-radius: 1%;
     width: 60%;
@@ -146,7 +147,7 @@ input[type=submit]:active {
 
 .container h2{
     text-align: center;
-    margin-top: 1.5%;
+    margin-top: 1%;
     font-size: 170%;
 }
 
@@ -176,20 +177,36 @@ input[type=submit]:active {
     width: 50%;
     height: auto;
     border-radius: 50%;
-    border: 1px;
+    padding: 3%;
+}
+
+[type=radio] {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+[type=radio] + img {
+    cursor: pointer;
+    border: 2px solid #f1f2f6;
+}
+
+[type=radio]:checked + img{
+    border: 2px solid #ed3d68;
 }
 
 .avatar:first-of-type {
-    margin-top: 5%;
+    margin-top: 3%;
 }
 
 .avatar:last-of-type{
-    margin-top: 3%;
+    margin-top: 1%;
 }
 
 #particles-js {
 height: 100%;
-    width: 100%;
+width: 100%;
 position: absolute;
-    background: linear-gradient(45deg, #16854a, #2e86de);
+background: linear-gradient(45deg, #22A7F0, #2ECC71);
 }
+

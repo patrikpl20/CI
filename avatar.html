@@ -21,8 +21,7 @@
             </nav>
         </header>
         <div id="particles-js"></div>
-        <script type="text/javascript" src="js/app.js"></script>
-        <script type="text/javascript" src="js/particles.js"></script>
+        
         <div class="row container">
                 <h2>Choose Player</h2>
                 <div class="divide">
@@ -30,33 +29,50 @@
                         <h3>Player 1:</h3>
                         <input type="text" name="name" id="name" placeholder="" required>
                         <div class="avatar">
-                            <div class="col span-1-of-3"><img src="super-mario-head.png"></div><div class="col span-1-of-3"><img src="super-mario-head.png"></div><div class="col span-1-of-3"><img src="super-mario-head.png"></div>
+                            <div class="col span-1-of-3"><label><input type="radio" id="av1" name="player1"><img src="super-mario-head.png"></label></div>
+                            <div class="col span-1-of-3"><label><input type="radio" id="av2" name="player1"><img src="super-mario-head.png"></label></div>
+                            <div class="col span-1-of-3"><label><input type="radio" id="av3" name="player1"><img src="super-mario-head.png"></label></div>
                         </div>
                         <div class="avatar">
-                            <div class="col span-1-of-3"><img src="super-mario-head.png"></div><div class="col span-1-of-3"><img src="super-mario-head.png"></div><div class="col span-1-of-3"><img src="super-mario-head.png"></div>
+                            <div class="col span-1-of-3"><label><input type="radio" id="av4" name="player1"><img src="super-mario-head.png"></label></div>
+                            <div class="col span-1-of-3"><label><input type="radio" id="av5" name="player1"><img src="super-mario-head.png"></label></div>
+                            <div class="col span-1-of-3"><label><input type="radio" id="av6" name="player1"><img src="super-mario-head.png"></label></div>
                         </div>
                     </div>
                     <div class="col span-1-of-2">
                         <h3>Player 2:</h3>
                         <input type="text" name="name" id="name" placeholder="" required>
                         <div class="avatar">
-                            <div class="col span-1-of-3"><img src="super-mario-head.png"></div><div class="col span-1-of-3"><img src="super-mario-head.png"></div><div class="col span-1-of-3"><img src="super-mario-head.png"></div>
+                            <div class="col span-1-of-3"><label><input type="radio" id="av1" name="player2"><img src="super-mario-head.png"></label></div>
+                            <div class="col span-1-of-3"><label><input type="radio" id="av2" name="player2"><img src="super-mario-head.png"></label></div>
+                            <div class="col span-1-of-3"><label><input type="radio" id="av3" name="player2"><img src="super-mario-head.png"></label></div>
                         </div>
                         <div class="avatar">
-                            <div class="col span-1-of-3"><img src="super-mario-head.png"></div><div class="col span-1-of-3"><img src="super-mario-head.png"></div><div class="col span-1-of-3"><img src="super-mario-head.png"></div>
+                            <div class="col span-1-of-3"><label><input type="radio" id="av4" name="player2"><img src="super-mario-head.png"></label></div>
+                            <div class="col span-1-of-3"><label><input type="radio" id="av5" name="player2"><img src="super-mario-head.png"></label></div>
+                            <div class="col span-1-of-3"><label><input type="radio" id="av6" name="player2"><img src="super-mario-head.png"></label></div>
                         </div>
                     </div>
                 </div>
                 <div class="ava-btn"><input type="submit" value="Let's play!"></div>
             </div>
         
-        <script src="//cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-        <script>
-            particlesJS.load('particles-js', 'particles.json', function() {
-  console.log('particles.json loaded');
-});
-        </script>
         
+        
+        <script type="text/javascript" src="js/particles.js"></script>
+        <script type="text/javascript" src="js/app.js"></script>
+        
+        <script>
+            var selected_avatar = 0;
+            function mark(avatarID) {
+                if(selected_avatar<3){
+                    avatarID.style.border = "1px solid red";
+                    selected_avatar += 1;
+                    
+                }
+                avatarID.style.border="1px solid red";
+            }
+        </script>
     </body>
 </html>
 
