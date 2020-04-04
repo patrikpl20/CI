@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <meta charset="utf-8">
+  <title>toss a coin</title>
+</head>
+
+<body>
+    <h1>Who is starting?</h1>
+    <button onclick="myfunction()">player1 or player2</button>
+    <div id="name"></div>
+    <img id="myimage">
+</body>
+    
+<script>
+    function myfunction() {
+        function getrandomnum(min, max){
+            return Math.floor(Math.random() * (max-min)) + min;
+        }
+        var num = getrandomnum(1,3);
+        var answer, avatar;
+        switch(num) {
+            case 1:
+                answer = "player1";
+                avatar = "super-mario-head.png";
+                break;
+            case 2:
+                answer = "player2";
+                avatar = "waluigi-head.png";
+                break;
+        }
+        document.getElementById("name").innerHTML = answer;
+        document.getElementById('myimage').src = avatar;
+    }
+</script>
+</html>
