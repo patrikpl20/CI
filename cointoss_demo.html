@@ -4,16 +4,23 @@
   <meta charset="utf-8">
   <title>toss a coin</title>
 </head>
-
 <body>
     <h1>Who is starting?</h1>
     <button onclick="myfunction()">player1 or player2</button>
+    <button onclick="alertCookie()">show Cookie</button>
     <div id="name"></div>
     <img id="myimage">
 </body>
     
 <script>
-    function myfunction() {
+    
+    document.cookie = "test";
+    
+    function alertCookie() {
+      alert(document.cookie);
+    }
+    
+    function myfunction() {     
         function getrandomnum(min, max){
             return Math.floor(Math.random() * (max-min)) + min;
         }
