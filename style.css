@@ -239,8 +239,8 @@ background: linear-gradient(45deg, #22A7F0, #2ECC71);
 }
 
 .content h3 {
-    line-height: 25vh;
-    height: 25vh;
+    line-height: 20vh;
+    height: 20vh;
     border-bottom: solid black;
 }
 
@@ -252,5 +252,5 @@ background: linear-gradient(45deg, #22A7F0, #2ECC71);
     margin-top: 5%;
     font-size: 140%;
     padding: 1.5%;
-    border: 0.5px solid #e2e2e2;
+    border: 0.5px solid #bebebe;
 }
