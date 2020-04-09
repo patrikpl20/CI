@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE quiz>
 <quiz>
-	<title>Castle Rallye</title>
 	<items>
 		<item>
 			<question points="1">What is HTML?</question>

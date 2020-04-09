@@ -25,12 +25,12 @@
             <img class="board b1" src="pics/Bild_1.png">   
             <img class="board b2" src="pics/Bild_1.png">  
             <div class="content">
-                <div class="question"><h3>Mario could you share your screen with us?</h3></div>
+                <div class="question"><h3 id="q"></h3></div>
                 <div class="choices">
-                    <div class="choice" id="A" onclick="checkAnswer('A')">No</div>
-                    <div class="choice" id="B" onclick="checkAnswer('B')">No</div>
-                    <div class="choice" id="C" onclick="checkAnswer('C')">No</div>
-                    <div class="choice" id="D" onclick="checkAnswer('D')">No</div>
+                    <div class="choice" id="A" onclick="checkAnswer('A')"><p id="A"></p></div>
+                    <div class="choice" id="B" onclick="checkAnswer('B')"><p id="B"></p></div>
+                    <div class="choice" id="C" onclick="checkAnswer('C')"><p id="C"></p></div>
+                    <div class="choice" id="D" onclick="checkAnswer('D')"><p id="D"></p></div>
                 </div>
             </div>
         </div>
@@ -40,6 +40,64 @@
         
        
     </body>
+    
+    <script>
+    
+        // Open The XML
+        
+        var xhttp;
+        xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4) {
+                myFunction(this);
+            }
+        };
+        
+        xhttp.open("GET", "quiz.xml", false);
+        xhttp.send();
+        
+        function myFunction(xml) {
+            var xmlDoc, qnr, quest, anr;
+            var aa, ab, ac, ad;
+            xmlDoc = xml.responseXML;
+            var qnr = parseInt("0");
+            
+            quest=""; aa=""; ab=""; ac=""; ad="";
+            
+            // Question
+            
+            quest = xmlDoc.getElementsByTagName("question")[qnr].childNodes[0].nodeValue;
+            
+            document.getElementById("q").innerHTML = quest;
+            
+            // Answer 1
+            
+            aa = xmlDoc.getElementsByTagName("answer")[qnr].childNodes[0].nodeValue;
+            
+            document.getElementById("A").innerHTML = aa;
+            
+            // Answer 2
+            
+            ab = xmlDoc.getElementsByTagName("answer")[qnr+1].childNodes[0].nodeValue;
+            
+            document.getElementById("B").innerHTML = ab;
+            
+            // Answer 3
+            
+            ac = xmlDoc.getElementsByTagName("answer")[qnr+2].childNodes[0].nodeValue;
+            
+            document.getElementById("C").innerHTML = ac;
+            
+            // Answer 4
+            
+            ad = xmlDoc.getElementsByTagName("answer")[qnr+3].childNodes[0].nodeValue;
+            
+            document.getElementById("D").innerHTML = ad;
+            
+        }
+    
+    </script>
+    
 </html>
 
 <!--
