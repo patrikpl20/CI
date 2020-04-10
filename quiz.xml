@@ -17,59 +17,59 @@
 		</item>
 		<item>
 			<question points="2">What is the correct HTML element for inserting a line break?</question>
-			<answer>&lt;p&gt;</answer>
+			<answer>p</answer>
 			<answer>break</answer>
-			<answer>&lt;Ib&gt;</answer>
-			<answer correct="y">&lt;br&gt;</answer>
+			<answer>Ib</answer>
+			<answer correct="y">br</answer>
 		</item>
 		<item>
 			<question points="3">What is the correct HTML for adding a background color?</question>
-			<answer correct="y">&lt;body style=”background-color:yellow;”&gt;</answer>
-			<answer>&lt;background&gt;yellow&lt;/background&gt;</answer>
-			<answer>&lt;body bg=”yellow”&gt;</answer>
-			<answer>&lt;body style=”color-background:yellow;”&gt;</answer>
+			<answer correct="y">body style=”background-color:yellow;”</answer>
+			<answer>background yellow/background</answer>
+			<answer>body bg=”yellow”</answer>
+			<answer>body style=”color-background:yellow;”</answer>
 		</item>
 		<item>
 			<question points="3">What is the correct HTML element to define important text?</question>
-			<answer correct="y">&lt;strong&gt;</answer>
-			<answer>&lt;b&gt;</answer>
-			<answer>&lt;i&gt;</answer>
-			<answer>&lt;important&gt;</answer>
+			<answer correct="y">strong</answer>
+			<answer>b</answer>
+			<answer>i</answer>
+			<answer>important</answer>
 		</item>
 		<item>
 			<question points="2">What is the correct HTML for creating a hyperlink?</question>
-			<answer>&lt;a name=”http://www.w3schools.com”&gt; W3Schools &lt;/a&gt;</answer>
-			<answer>&lt;a url=”http://www.w3schools.com”&gt; W3Schools &lt;/a&gt;</answer>
-			<answer>&lt;a&gt;http://www.w3schools.com”&lt;/a&gt;</answer>
-			<answer correct="y">&lt;a href=”http://www.w3schools.com”&gt; W3Schools &lt;/a&gt;</answer>
+			<answer>a name=”http://www.w3schools.com” W3Schools /a</answer>
+			<answer>a url=”http://www.w3schools.com” W3Schools /a</answer>
+			<answer>ahttp://www.w3schools.com”/a</answer>
+			<answer correct="y">a href=”http://www.w3schools.com” W3Schools /a</answer>
 		</item>
 		<item>
 			<question points="1">Which character is used to indicate an end tag?</question>
 			<answer correct="y">/</answer>
-			<answer>&lt;</answer>
+			<answer>;</answer>
 			<answer>*</answer>
 			<answer>^</answer>
 		</item>
 		<item>
 			<question points="2">How can you open a link in a new tab/browser window?</question>
-			<answer>&lt;a href=”url” new&gt;</answer>
-			<answer>&lt;a href=”url” target=”new”&gt;</answer>
-			<answer correct="y">&lt;a href=”url” target=”_blank”&gt;</answer>
-			<answer>&lt;a href=”url”open=”new”&gt;</answer>
+			<answer>a href=”url” new</answer>
+			<answer>a href=”url” target=”new”</answer>
+			<answer correct="y">a href=”url” target=”_blank”</answer>
+			<answer>a href=”url”open=”new”</answer>
 		</item>
 		<item>
-			<question points="1">Which of these elements are all &lt;table&gt; elements?</question>
-			<answer>&lt;table&gt;&lt;head&gt;&lt;tfoot&gt;</answer>
-			<answer>&lt;table&gt;&lt;tr&gt;&lt;tt&gt;</answer>
-			<answer correct="y">&lt;table&gt;&lt;tr&gt;&lt;td&gt;</answer>
-			<answer>&lt;thead&gt;&lt;body&gt;&lt;tr&gt;</answer>
+			<question points="1">Which of these elements are all table elements?</question>
+			<answer>tablehead tfoot;</answer>
+			<answer>table tr tt</answer>
+			<answer correct="y"> table tr td </answer>
+			<answer>thead body tr </answer>
 		</item>
 		<item>
 			<question points="2">What is the correct HTML for inserting an image?</question>
-			<answer correct="y">&lt;img src=“image.gif“ alt=“MyImage“&gt;</answer>
-			<answer>&lt;img href=”image.gif” alt=“MyImage“&gt;</answer>
-			<answer>&lt;image scr=“image.gid“ alt=”MyImage”&gt;</answer>
-			<answer>&lt;img alt=”MyImage”&gt; image.gif &lt;/img&gt;</answer>
+			<answer correct="y">img src=“image.gif“ alt=“MyImage“</answer>
+			<answer>img href=”image.gif” alt=“MyImage“</answer>
+			<answer>image scr=“image.gid“ alt=”MyImage”</answer>
+			<answer>img alt=”MyImage” image.gif /img</answer>
 		</item>
 		<item>
 			<question points="1">What does CSS stand for?</question>
@@ -80,9 +80,9 @@
 		</item>
 		<item>
 			<question points="1">Which HTML element defines the title of a document?</question>
-			<answer>&lt;head&gt;</answer>
-			<answer correct="y">&lt;title&gt;</answer>
-			<answer>&lt;meta&gt;</answer>
+			<answer>head</answer>
+			<answer correct="y">title</answer>
+			<answer>meta</answer>
 			<answer>h1</answer>
 		</item>
 		<item>
@@ -93,7 +93,7 @@
 			<answer correct="y">alt</answer>
 		</item>
 		<item>
-			<question points="3">The HTML &lt;canvas&gt; element is used to:</question>
+			<question points="3">The HTML canvas element is used to:</question>
 			<answer correct="y">draw graphics</answer>
 			<answer>create draggable elements</answer>
 			<answer>manipulate data in MySQL</answer>
@@ -108,24 +108,24 @@
 		</item>
 		<item>
 			<question points="1">What is the correct HTML element for the largest heading?</question>
-			<answer>&lt;head&gt;</answer>
+			<answer>head</answer>
 			<answer>heading</answer>
-			<answer>&lt;h6&gt;</answer>
-			<answer correct="y">&lt;h1&gt;</answer>
+			<answer>h6</answer>
+			<answer correct="y">h1</answer>
 		</item>
 		<item>
 			<question points="2">What is the correct HTML for referring to an external style sheet?</question>
-			<answer correct="y">&lt;link rel="stylesheet" type="text/css" href="mystyle.css"&gt;</answer>
-			<answer>&lt;stylesheet&gt;mystyle.css&lt;/stylesheet&gt;</answer>
-			<answer>&lt;style src="mystyle.css"&gt;</answer>
-			<answer>&lt;ahref=”stylesheet” type=”text/css”&gt;</answer>
+			<answer correct="y">link rel="stylesheet" type="text/css" href="mystyle.css"</answer>
+			<answer>stylesheet mystyle.css/stylesheet</answer>
+			<answer>style src="mystyle.css"</answer>
+			<answer>ahref=”stylesheet” type=”text/css”</answer>
 		</item>
 		<item>
 			<question points="2">Which HTML tag is used to define an internal style sheet?</question>
-			<answer>&lt;css&gt;</answer>
-			<answer>&lt;script&gt;</answer>
-			<answer correct="y">&lt;style&gt;</answer>
-			<answer>&lt;internal&gt;</answer>
+			<answer>css</answer>
+			<answer>script</answer>
+			<answer correct="y">style</answer>
+			<answer>internal</answer>
 		</item>
 		<item>
 			<question points="3">Which is the correct CSS syntax?</question>
@@ -150,17 +150,17 @@
 		</item>
 		<item>
 			<question points="1">Inside which HTML element do we put the JavaScript?</question>
-			<answer>&lt;js&gt;</answer>
-			<answer correct="y">&lt;script&gt;</answer>
-			<answer>&lt;scripting&gt;</answer>
-			<answer>&lt;javascript&gt;</answer>
+			<answer>js</answer>
+			<answer correct="y">script</answer>
+			<answer>scripting</answer>
+			<answer>javascript</answer>
 		</item>
 		<item>
 			<question points="1">Where is the correct place to insert a JavaScript?</question>
-			<answer>The &lt;head&gt; section</answer>
-			<answer>The &lt;body&gt; section</answer>
+			<answer>The head section</answer>
+			<answer>The body section</answer>
 			<answer>None of the answers is correct.</answer>
-			<answer correct="y">Both the &lt;head&gt; section and the &lt;body&gt; section are correct</answer>
+			<answer correct="y">Both the head section and the bodysection are correct</answer>
 		</item>
 		<item>
 			<question points="2">How do you create a function in JavaScript?</question>

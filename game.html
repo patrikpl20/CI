@@ -56,16 +56,46 @@
         xhttp.open("GET", "quiz.xml", false);
         xhttp.send();
         
+        // get random number for questions
+        
+        function getRndInteger(min, max) {
+        return Math.floor(Math.random() * (max - min + 1) ) + min;
+        }
+        
         function myFunction(xml) {
             
             var xmlDoc;
             xmlDoc = xml.responseXML;
-                        
+                                    
             // get Question
             
-            var qnr, quest;
+            var x = xmlDoc.getElementsByTagName("question");
             
-            var qnr = parseInt("0");
+            var qnr, quest, isused;
+            
+            var qnr = getRndInteger(0, x.length);
+            
+            // save already questioned
+            
+            var z, usedquestionlist;
+            usedquestionlist="";
+            
+            do {
+                for (z = 0; z < usedquestionlist.length; z++) {
+                if (qnr == usedquestionlist[z]) {
+                    isused = true; 
+                    qnr = getRndInteger(0, x.length);
+                    break;
+                }
+                else {isused = false;
+                     usedquestionlist.push(qnr);
+                     }
+                }
+                
+            }
+            while (isused == true);
+            
+            alert(qnr);
             
             quest=""; 
             
@@ -73,60 +103,26 @@
             
             document.getElementById("q").innerHTML = quest;
             
-            // get Answers 
+            // calculate nr of answers out of questionnr
             
-            var temp, i, j;
-            temp ="";
-            j=1;
+            // qnr = jetzige Frage
             
-            for (i = 0; i < 5; i++) {
-                temp = xmlDoc.getElementsByTagName("answer")[i].childNodes[0].nodeValue;
-                document.getElementById('A'+[j]).innerHTML = temp;
-                j++;
-                temp="";
-            }
+            // qnr * 4 = Startwert
+            // Startwert + for Schleife (i = 0; i < 3; i++)
+            
+            var answer1 = xmlDoc.getElementsByTagName("answer")[qnr * 4 + 0].childNodes[0].nodeValue;
+            document.getElementById("A1").innerHTML = answer1;
+            
+            var answer2 = xmlDoc.getElementsByTagName("answer")[qnr * 4 + 1].childNodes[0].nodeValue;
+            document.getElementById("A2").innerHTML = answer2;
+            
+            var answer3 = xmlDoc.getElementsByTagName("answer")[qnr * 4 + 2].childNodes[0].nodeValue;
+            document.getElementById("A3").innerHTML = answer3;
+            
+            var answer4 = xmlDoc.getElementsByTagName("answer")[qnr * 4 + 3].childNodes[0].nodeValue;
+            document.getElementById("A4").innerHTML = answer4;
             
         }
-        
-            /*
-        
-            var temp, i, j;
-            temp ="";
-            
-            for (i = 0; i < 5; i++) {
-                temp = xmlDoc.getElementsByTagName("answer")[i].childNodes[0].nodeValue;
-                for (j = 1; j < 5; j++) {
-                document.getElementById('A'+[j]).innerHTML = temp;
-                break;
-                }   
-                temp="";
-            }
-            
-            // Answer 1
-            
-            aa = xmlDoc.getElementsByTagName("answer")[qnr].childNodes[0].nodeValue;
-            
-            document.getElementById("A").innerHTML = aa;
-            
-            // Answer 2
-            
-            ab = xmlDoc.getElementsByTagName("answer")[qnr+1].childNodes[0].nodeValue;
-            
-            document.getElementById("B").innerHTML = ab;
-            
-            // Answer 3
-            
-            ac = xmlDoc.getElementsByTagName("answer")[qnr+2].childNodes[0].nodeValue;
-            
-            document.getElementById("C").innerHTML = ac;
-            
-            // Answer 4
-            
-            ad = xmlDoc.getElementsByTagName("answer")[qnr+3].childNodes[0].nodeValue;
-            
-            document.getElementById("D").innerHTML = ad;
-            
-            */
     
     </script>
     
