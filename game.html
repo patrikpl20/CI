@@ -14,6 +14,19 @@
           background-color: rgb(0,0,0); /* Fallback color */
           background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
         }
+            
+        .popupScoreboard {
+          display: none; /* Hidden by default */
+          position: fixed; /* Stay in place */
+          z-index: 10000; /* Sit on top */
+          left: 0;
+          top: 0;
+          width: 100%; /* Full width */
+          height: 100%; /* Full height */
+          overflow: auto; /* Enable scroll if needed */
+          background-color: rgb(0,0,0); /* Fallback color */
+          background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
 
         /* Popup Content/Box */
         .popup-content {
@@ -52,7 +65,17 @@
             <h2>Result!</h2>
             <div id="result"></div>
             <div id="points"></div>
-            <button onclick="location.href='game.html';">next question(work in progress)!</button>
+            <div id="seconds"></div>
+            <button onclick="closepopup()">next player!</button>
+          </div>
+        </div>
+<!-- ##########################################################--> 
+<!-- ###################### scoreboard ######################-->
+        <div id="popupScoreboard" class="popupScoreboard">
+          <div class="popup-content">
+            <h2>Scoreboard!</h2>
+            <button onclick="location.href='login_new.html';">logout</button>               <!-- TODO -->
+            <button onclick="location.href='avatar_raphi.html';">restart</button>           <!-- TODO -->
           </div>
         </div>
 <!-- ##########################################################--> 
@@ -78,7 +101,27 @@
     
     <script>
         var qnr, quest, isused, x, z, usedquestionlist, questweight, answerattr1, answerattr2, answerattr3, answerattr4;
-        var pointsP1, pointsP2, result;
+        var pointsP1, pointsP2, result, starter, startTime, endTime, seconds;
+        pointsP1 = 0;
+        pointsP2 = 0;
+        var questcount = 0;
+        var xmlDoc;
+        questweight = 0;
+        seconds = 0;
+        
+        if(localStorage.getItem("first") != null && localStorage.getItem("second") != null){
+            var player1 = localStorage.getItem("first");
+            var player2 = localStorage.getItem("second");
+        }else {
+            var player1 = "Player1";
+            var player2 = "Player2";
+        }
+    
+
+        var player2 = localStorage.getItem("second");
+        
+        
+        
         
         var xhttp;
         xhttp = new XMLHttpRequest();
@@ -97,8 +140,6 @@
         }
         
         function myFunction(xml) {
-            var xmlDoc;
-            
             xmlDoc = xml.responseXML;            
             x = xmlDoc.getElementsByTagName("question");
             qnr = getRndInteger(0, x.length);
@@ -119,12 +160,14 @@
                 
             }
             while (isused == true);
+            z=0;
             
             quest=""; 
             quest = xmlDoc.getElementsByTagName("question")[qnr].childNodes[0].nodeValue;
             document.getElementById("q").innerHTML = quest;
             //Punkte der Frage auslesen
             questweight = xmlDoc.getElementsByTagName("question")[qnr].getAttribute('points');
+            questweight = parseInt(questweight);
             
             /* 
                 calculate nr of answers out of questionnr
@@ -147,6 +190,8 @@
             var answer4 = xmlDoc.getElementsByTagName("answer")[qnr * 4 + 3].childNodes[0].nodeValue;
             document.getElementById("A4").innerHTML = answer4;
             answerattr4 = xmlDoc.getElementsByTagName("answer")[qnr * 4 + 3].getAttribute('correct');
+            
+            starttimer();
             
             //alert("Points for question "+ qnr +": " + questweight +"   Correct Answer: " + answerattr1+answerattr2+answerattr3+answerattr4);    
         }
@@ -180,17 +225,68 @@
             
             if(answerUser == trueanswer){
                 result = "Right Answer!";
+                if(questcount % 2 == 0){
+                    pointsP1 = pointsP1 + questweight;         
+                }
+                else{
+                    pointsP2 = pointsP2 + questweight;
+                }
             }else{
                 result = "False Answer!";
             }
+            
+            if(pointsP1 > 15 || pointsP2 > 15){
+                popupScoreboard.style.display = "block";
+            }
+            
+            questcount++;
+            
+            endtimer();
+            
             
             window.setTimeout(function() {
                 popup.style.display = "block";
                 document.getElementById("result").innerHTML = result;
                 document.getElementById("points").innerHTML = "Points for this Answer: " + questweight;
+                document.getElementById("seconds").innerHTML = "required time: " + seconds + " seconds";
             }, 1000);
             
         }
+        
+        
+        function closepopup() {
+            popup.style.display = "none"; 
+                xhttp.onreadystatechange = function() {
+                if (this.readyState == 4) {
+                    myFunction(this);
+                }
+            };
+            xhttp.open("GET", "quiz.xml", false);
+            xhttp.send();
+            
+        
+            document.getElementById("A1").style.color = "black";
+            document.getElementById("A2").style.color = "black";
+            document.getElementById("A3").style.color = "black";
+            document.getElementById("A4").style.color = "black";   
+        }
+        
+
+        function starttimer() {
+          startTime = new Date();
+        };
+        
+        function endtimer() {
+          endTime = new Date();
+          var timeDiff = endTime - startTime; //in ms
+          timeDiff /= 1000;
+
+          // get seconds 
+          seconds = Math.round(timeDiff);
+        }
+        
+        
+        
         
     
     </script>

@@ -190,6 +190,15 @@
         }
         document.getElementById("name").innerHTML = answer;
         document.getElementById('myimage').src = avatar;
+            
+        if(answer == namep1){
+            localStorage.setItem("first",namep1);
+            localStorage.setItem("second",namep2);
+        }else{
+            localStorage.setItem("first",namep2);
+            localStorage.setItem("second",namep1);
+        }
+        
     }
         
     </script>
