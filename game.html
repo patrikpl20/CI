@@ -27,10 +27,10 @@
             <div class="content">
                 <div class="question"><h3 id="q"></h3></div>
                 <div class="choices">
-                    <div class="choice" id="A" onclick="checkAnswer('A')"><p id="A"></p></div>
-                    <div class="choice" id="B" onclick="checkAnswer('B')"><p id="B"></p></div>
-                    <div class="choice" id="C" onclick="checkAnswer('C')"><p id="C"></p></div>
-                    <div class="choice" id="D" onclick="checkAnswer('D')"><p id="D"></p></div>
+                    <div class="choice" id="A" onclick="checkAnswer('A')"><p id="A1"></p></div>
+                    <div class="choice" id="B" onclick="checkAnswer('B')"><p id="A2"></p></div>
+                    <div class="choice" id="C" onclick="checkAnswer('C')"><p id="A3"></p></div>
+                    <div class="choice" id="D" onclick="checkAnswer('D')"><p id="A4"></p></div>
                 </div>
             </div>
         </div>
@@ -57,18 +57,50 @@
         xhttp.send();
         
         function myFunction(xml) {
-            var xmlDoc, qnr, quest, anr;
-            var aa, ab, ac, ad;
+            
+            var xmlDoc;
             xmlDoc = xml.responseXML;
+                        
+            // get Question
+            
+            var qnr, quest;
+            
             var qnr = parseInt("0");
             
-            quest=""; aa=""; ab=""; ac=""; ad="";
-            
-            // Question
+            quest=""; 
             
             quest = xmlDoc.getElementsByTagName("question")[qnr].childNodes[0].nodeValue;
             
             document.getElementById("q").innerHTML = quest;
+            
+            // get Answers 
+            
+            var temp, i, j;
+            temp ="";
+            j=1;
+            
+            for (i = 0; i < 5; i++) {
+                temp = xmlDoc.getElementsByTagName("answer")[i].childNodes[0].nodeValue;
+                document.getElementById('A'+[j]).innerHTML = temp;
+                j++;
+                temp="";
+            }
+            
+        }
+        
+            /*
+        
+            var temp, i, j;
+            temp ="";
+            
+            for (i = 0; i < 5; i++) {
+                temp = xmlDoc.getElementsByTagName("answer")[i].childNodes[0].nodeValue;
+                for (j = 1; j < 5; j++) {
+                document.getElementById('A'+[j]).innerHTML = temp;
+                break;
+                }   
+                temp="";
+            }
             
             // Answer 1
             
@@ -94,7 +126,7 @@
             
             document.getElementById("D").innerHTML = ad;
             
-        }
+            */
     
     </script>
     
