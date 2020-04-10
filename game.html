@@ -102,6 +102,7 @@
     <script>
         var qnr, quest, isused, x, z, usedquestionlist, questweight, answerattr1, answerattr2, answerattr3, answerattr4;
         var pointsP1, pointsP2, result, starter, startTime, endTime, seconds;
+        usedquestionlist=[];
         pointsP1 = 0;
         pointsP2 = 0;
         var questcount = 0;
@@ -143,24 +144,19 @@
             xmlDoc = xml.responseXML;            
             x = xmlDoc.getElementsByTagName("question");
             qnr = getRndInteger(0, x.length);
-            usedquestionlist="";
             
+            var n = true;
             
-            do {
-                for (z = 0; z < usedquestionlist.length; z++) {
-                if (qnr == usedquestionlist[z]) {
-                    isused = true; 
+            while (n == true) {
+                n = usedquestionlist.includes(qnr);
+                if (n == true) {
                     qnr = getRndInteger(0, x.length);
-                    break;
                 }
-                else {isused = false;
-                     usedquestionlist.push(qnr);
+                else {n = false;
+                      usedquestionlist.push(qnr);
                      }
-                }
-                
+        
             }
-            while (isused == true);
-            z=0;
             
             quest=""; 
             quest = xmlDoc.getElementsByTagName("question")[qnr].childNodes[0].nodeValue;
