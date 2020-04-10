@@ -69,15 +69,10 @@
                                     
             // get Question
             
-            var x = xmlDoc.getElementsByTagName("question");
+            var qnr, quest, isused, x, z, usedquestionlist, questweight, answerattr1, answerattr2, answerattr3, answerattr4;
             
-            var qnr, quest, isused;
-            
-            var qnr = getRndInteger(0, x.length);
-            
-            // save already questioned
-            
-            var z, usedquestionlist;
+            x = xmlDoc.getElementsByTagName("question");
+            qnr = getRndInteger(0, x.length);
             usedquestionlist="";
             
             do {
@@ -94,33 +89,39 @@
                 
             }
             while (isused == true);
-            
-            alert(qnr);
+
             
             quest=""; 
-            
             quest = xmlDoc.getElementsByTagName("question")[qnr].childNodes[0].nodeValue;
-            
             document.getElementById("q").innerHTML = quest;
+            //Punkte der Frage auslesen
+            questweight = xmlDoc.getElementsByTagName("question")[qnr].getAttribute('points');
             
-            // calculate nr of answers out of questionnr
             
-            // qnr = jetzige Frage
-            
-            // qnr * 4 = Startwert
-            // Startwert + for Schleife (i = 0; i < 3; i++)
-            
+            /* 
+            calculate nr of answers out of questionnr
+            qnr = jetzige Frage
+            qnr * 4 = Startwert
+            Startwert + for Schleife (i = 0; i < 3; i++)
+            */
             var answer1 = xmlDoc.getElementsByTagName("answer")[qnr * 4 + 0].childNodes[0].nodeValue;
             document.getElementById("A1").innerHTML = answer1;
+            answerattr1 = xmlDoc.getElementsByTagName("answer")[qnr * 4 + 0].getAttribute('correct');
             
             var answer2 = xmlDoc.getElementsByTagName("answer")[qnr * 4 + 1].childNodes[0].nodeValue;
             document.getElementById("A2").innerHTML = answer2;
+            answerattr2 = xmlDoc.getElementsByTagName("answer")[qnr * 4 + 1].getAttribute('correct');
             
             var answer3 = xmlDoc.getElementsByTagName("answer")[qnr * 4 + 2].childNodes[0].nodeValue;
             document.getElementById("A3").innerHTML = answer3;
+            answerattr3 = xmlDoc.getElementsByTagName("answer")[qnr * 4 + 2].getAttribute('correct');
             
             var answer4 = xmlDoc.getElementsByTagName("answer")[qnr * 4 + 3].childNodes[0].nodeValue;
             document.getElementById("A4").innerHTML = answer4;
+            answerattr4 = xmlDoc.getElementsByTagName("answer")[qnr * 4 + 3].getAttribute('correct');
+            
+            
+            alert("Points for question "+ qnr +": " + questweight +"   Correct Answer: " + answerattr1+answerattr2+answerattr3+answerattr4);
             
         }
     
