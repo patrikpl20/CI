@@ -1,5 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+        <style>
+        /* Popup (background) */
+        .popup {
+          display: none; /* Hidden by default */
+          position: fixed; /* Stay in place */
+          z-index: 10000; /* Sit on top */
+          left: 0;
+          top: 0;
+          width: 100%; /* Full width */
+          height: 100%; /* Full height */
+          overflow: auto; /* Enable scroll if needed */
+          background-color: rgb(0,0,0); /* Fallback color */
+          background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+
+        /* Popup Content/Box */
+        .popup-content {
+          background-color: #fefefe;
+          margin: 15% auto; /* 15% from the top and centered */
+          padding: 20px;
+          border: 1px solid #888;
+          width: 50%; /* Could be more or less, depending on screen size */
+        }
+    </style>
+    
     <head>
         <link rel="stylesheet" type="text/css" href="style.css">
         <link href="https://fonts.googleapis.com/css?family=Lato:100,300,300i,400&display=swap" rel="stylesheet" type='text/css'>
@@ -21,16 +46,26 @@
             </nav>
         </header>
         <div id="particles-js"></div>
+<!-- ###################### popup window ######################-->
+        <div id="popup" class="popup">
+          <div class="popup-content">
+            <h2>Result!</h2>
+            <div id="result"></div>
+            <div id="points"></div>
+            <button onclick="location.href='game.html';">next question(work in progress)!</button>
+          </div>
+        </div>
+<!-- ##########################################################--> 
         <div class="row gamecon">
             <img class="board b1" src="pics/Bild_1.png">   
             <img class="board b2" src="pics/Bild_1.png">  
             <div class="content">
                 <div class="question"><h3 id="q"></h3></div>
                 <div class="choices">
-                    <div class="choice" id="A" onclick="checkAnswer('A')"><p id="A1"></p></div>
-                    <div class="choice" id="B" onclick="checkAnswer('B')"><p id="A2"></p></div>
-                    <div class="choice" id="C" onclick="checkAnswer('C')"><p id="A3"></p></div>
-                    <div class="choice" id="D" onclick="checkAnswer('D')"><p id="A4"></p></div>
+                    <div class="choice" id="A" onclick="submitAnswer('A')"><p id="A1"></p></div>
+                    <div class="choice" id="B" onclick="submitAnswer('B')"><p id="A2"></p></div>
+                    <div class="choice" id="C" onclick="submitAnswer('C')"><p id="A3"></p></div>
+                    <div class="choice" id="D" onclick="submitAnswer('D')"><p id="A4"></p></div>
                 </div>
             </div>
         </div>
@@ -42,8 +77,8 @@
     </body>
     
     <script>
-    
-        // Open The XML
+        var qnr, quest, isused, x, z, usedquestionlist, questweight, answerattr1, answerattr2, answerattr3, answerattr4;
+        var pointsP1, pointsP2, result;
         
         var xhttp;
         xhttp = new XMLHttpRequest();
@@ -52,28 +87,23 @@
                 myFunction(this);
             }
         };
-        
         xhttp.open("GET", "quiz.xml", false);
         xhttp.send();
         
-        // get random number for questions
+
         
         function getRndInteger(min, max) {
-        return Math.floor(Math.random() * (max - min + 1) ) + min;
+            return Math.floor(Math.random() * (max - min + 1) ) + min;
         }
         
         function myFunction(xml) {
-            
             var xmlDoc;
-            xmlDoc = xml.responseXML;
-                                    
-            // get Question
             
-            var qnr, quest, isused, x, z, usedquestionlist, questweight, answerattr1, answerattr2, answerattr3, answerattr4;
-            
+            xmlDoc = xml.responseXML;            
             x = xmlDoc.getElementsByTagName("question");
             qnr = getRndInteger(0, x.length);
             usedquestionlist="";
+            
             
             do {
                 for (z = 0; z < usedquestionlist.length; z++) {
@@ -89,7 +119,6 @@
                 
             }
             while (isused == true);
-
             
             quest=""; 
             quest = xmlDoc.getElementsByTagName("question")[qnr].childNodes[0].nodeValue;
@@ -97,12 +126,11 @@
             //Punkte der Frage auslesen
             questweight = xmlDoc.getElementsByTagName("question")[qnr].getAttribute('points');
             
-            
             /* 
-            calculate nr of answers out of questionnr
-            qnr = jetzige Frage
-            qnr * 4 = Startwert
-            Startwert + for Schleife (i = 0; i < 3; i++)
+                calculate nr of answers out of questionnr
+                qnr = jetzige Frage
+                qnr * 4 = Startwert
+                Startwert + for Schleife (i = 0; i < 3; i++)
             */
             var answer1 = xmlDoc.getElementsByTagName("answer")[qnr * 4 + 0].childNodes[0].nodeValue;
             document.getElementById("A1").innerHTML = answer1;
@@ -120,10 +148,50 @@
             document.getElementById("A4").innerHTML = answer4;
             answerattr4 = xmlDoc.getElementsByTagName("answer")[qnr * 4 + 3].getAttribute('correct');
             
+            //alert("Points for question "+ qnr +": " + questweight +"   Correct Answer: " + answerattr1+answerattr2+answerattr3+answerattr4);    
+        }
+        
+        
+        function submitAnswer(answerUser){
+            var trueanswer;
             
-            alert("Points for question "+ qnr +": " + questweight +"   Correct Answer: " + answerattr1+answerattr2+answerattr3+answerattr4);
+            if(answerattr1 != null){
+                document.getElementById("A1").style.color = "green";
+                trueanswer = "A";
+            } else if (answerattr2 != null) {
+                document.getElementById("A2").style.color = "green";
+                trueanswer = "B";
+            }else if (answerattr3 != null) {
+                document.getElementById("A3").style.color = "green";
+                trueanswer = "C";
+            }else if (answerattr4 != null) {
+                document.getElementById("A4").style.color = "green";
+                trueanswer = "D";
+            }
+            
+            if (answerattr1 == null){
+                document.getElementById("A1").style.color = "red";}
+            if (answerattr2 == null) {
+                document.getElementById("A2").style.color = "red";}
+            if (answerattr3 == null) {
+                document.getElementById("A3").style.color = "red";}
+            if (answerattr4 == null) {
+                document.getElementById("A4").style.color = "red";}
+            
+            if(answerUser == trueanswer){
+                result = "Right Answer!";
+            }else{
+                result = "False Answer!";
+            }
+            
+            window.setTimeout(function() {
+                popup.style.display = "block";
+                document.getElementById("result").innerHTML = result;
+                document.getElementById("points").innerHTML = "Points for this Answer: " + questweight;
+            }, 1000);
             
         }
+        
     
     </script>
     
