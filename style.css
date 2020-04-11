@@ -211,15 +211,15 @@ background: linear-gradient(45deg, #22A7F0, #2ECC71);
 
 
 .gamecon {
+    height: 450px;
     margin-top: 2%;
     background-color: #f1f2f6;
     border-radius: 1%;
-    width: 75%;
     position: relative;
 }
 
 .gamecon img {
-    width: 23%;
+    width: 225px;
     padding: 0;
 }
 
@@ -239,18 +239,28 @@ background: linear-gradient(45deg, #22A7F0, #2ECC71);
 }
 
 .content h3 {
-    line-height: 20vh;
-    height: 20vh;
+    line-height: 14vh;
+    height: 14vh;
     border-bottom: solid black;
 }
 
 .choice {
     width: 90%;
+    height: 35px;
     background-color: #fff;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 5%;
-    font-size: 140%;
-    padding: 1.5%;
+    margin-top: 30px;
+    font-size: 150%;
+    padding: 5px;
     border: 0.5px solid #bebebe;
+    transition: 0.2s background-color; 0.2s font-size; 0.2s color; 0.2s border;
+}
+
+.choice:hover {
+    cursor: pointer;
+    background-color: #ed3d68;
+    font-size: 160%;
+    color: #fff;
+    border: #ed3d68;
 }
