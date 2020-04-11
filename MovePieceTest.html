@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<style>
+canvas {
+    border:1px solid #d3d3d3;
+    background-color: #f1f1f1;
+}
+</style>
+</head>
+<body onload="startGame()">
+<script>
+
+var myGamePiece;
+var myBackground;
+
+function startGame() {
+    myGamePiece = new component(30, 40, "pics/GamePiece.png", 325, 1155, "image");
+    myBackground = new component(600, 1200, "pics/Bild_1.png", 0, 0, "image");
+    myGameArea.start();
+}
+
+var myGameArea = {
+    canvas : document.createElement("canvas"),
+    start : function() {
+        this.canvas.width = 600;
+        this.canvas.height = 1200;
+        this.context = this.canvas.getContext("2d");
+        document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+        this.frameNo = 0;
+        this.interval = setInterval(updateGameArea, 20);
+        },
+    clear : function() {
+        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    },
+    stop : function() {
+        clearInterval(this.interval);
+    }
+}
+
+function component(width, height, color, x, y, type) {
+    this.type = type;
+    if (type == "image") {
+        this.image = new Image();
+        this.image.src = color;
+    }
+    this.width = width;
+    this.height = height;
+    this.speedX = 0;
+    this.speedY = 0;
+    this.x = x;
+    this.y = y;
+    this.update = function() {
+        ctx = myGameArea.context;
+        if (type == "image") {
+            ctx.drawImage(this.image,
+                this.x,
+                this.y,
+                this.width, this.height);
+        } else {
+            ctx.fillStyle = color;
+            ctx.fillRect(this.x, this.y, this.width, this.height);
+        }
+    }
+    this.newPos = function() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+    }
+}
+
+function updateGameArea() {
+    myGameArea.clear();
+    myBackground.newPos();
+    myBackground.update();
+    myGamePiece.newPos();
+    myGamePiece.update();
+}
+
+function move(dir) {
+    myGamePiece.image.src = "pics/GamePiece.png";
+    if (dir == "up") {myGamePiece.speedY = -1; }
+    if (dir == "down") {myGamePiece.speedY = 1; }
+    if (dir == "left") {myGamePiece.speedX = -1; }
+    if (dir == "right") {myGamePiece.speedX = 1; }
+    if (dir == "1") { myGamePiece.speedY = -1.8; myGamePiece.speedX = -2.1;
+      setTimeout(function(){ myGamePiece.speedX = 0; myGamePiece.speedY = 0; }, 1000);
+}
+    if (dir == "2") {myGamePiece.speedY = -1.6; myGamePiece.speedX = -1.7;
+      setTimeout(function(){ myGamePiece.speedX = 0; myGamePiece.speedY = 0; }, 1000);
+}
+
+    if (dir == "3") {myGamePiece.speedY = -1.5; myGamePiece.speedX = 2.6;
+      setTimeout(function(){ myGamePiece.speedX = 0; myGamePiece.speedY = 0; }, 1000);
+}
+
+    if (dir == "4") {myGamePiece.speedY = -18; myGamePiece.speedX = -21;}
+    if (dir == "5") {myGamePiece.speedY = -18; myGamePiece.speedX = -21;}
+    if (dir == "6") {myGamePiece.speedY = -18; myGamePiece.speedX = -21;}
+    if (dir == "7") {myGamePiece.speedY = -18; myGamePiece.speedX = -21;}
+    if (dir == "8") {myGamePiece.speedY = -18; myGamePiece.speedX = -21;}
+    if (dir == "9") {myGamePiece.speedY = -18; myGamePiece.speedX = -21;}
+    if (dir == "10") {myGamePiece.speedY = -18; myGamePiece.speedX = -21;}
+    if (dir == "11") {myGamePiece.speedY = -18; myGamePiece.speedX = -21;}
+    if (dir == "12") {myGamePiece.speedY = -18; myGamePiece.speedX = -21;}
+    if (dir == "13") {myGamePiece.speedY = -18; myGamePiece.speedX = -21;}
+    if (dir == "14") {myGamePiece.speedY = -18; myGamePiece.speedX = -21;}
+    if (dir == "15") {myGamePiece.speedY = -18; myGamePiece.speedX = -21;}
+
+
+
+}
+
+
+
+//function clearmove() {
+//    myGamePiece.image.src = "pics/GamePiece.png";
+//    myGamePiece.speedX = 0;
+//    myGamePiece.speedY = 0;
+//}
+</script>
+<div style="text-align:center;width:480px;">
+  <button onmousedown="move('up')" onmouseup="clearmove()" ontouchstart="move('up')">UP</button><br><br>
+  <button onmousedown="move('left')" onmouseup="clearmove()" ontouchstart="move('left')">LEFT</button>
+  <button onmousedown="move('right')" onmouseup="clearmove()" ontouchstart="move('right')">RIGHT</button><br><br>
+  <button onmousedown="move('down')" onmouseup="clearmove()" ontouchstart="move('down')">DOWN</button>
+  <button onclick="move('1')" >1</button>
+  <button onmousedown="move('2')" >2</button>
+  <button onmousedown="move('3')" >3</button>
+  <button onmousedown="move('4')" >4</button>
+  <button onmousedown="move('5')" >5</button>
+  <button onmousedown="move('6')" >6</button>
+  <button onmousedown="move('7')" >7</button>
+  <button onmousedown="move('8')" >8</button>
+  <button onmousedown="move('9')" >9</button>
+  <button onmousedown="move('10')" >10</button>
+  <button onmousedown="move('11')" >11</button>
+  <button onmousedown="move('12')" >12</button>
+  <button onmousedown="move('13')" >13</button>
+  <button onmousedown="move('14')" >14</button>
+  <button onmousedown="move('15')" >15</button>
+</div>
+
+<p>Update the background before updating other components to make sure the other components are dispalyed on top of the background.</p>
+</body>
+</html>
