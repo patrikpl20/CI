@@ -17,21 +17,6 @@
         
 
         .popupScoreboard {
-<<<<<<< HEAD
-<<<<<<< HEAD
-        display: none; /* Hidden by default */
-        position: fixed; /* Stay in place */
-        z-index: 10000; /* Sit on top */
-        left: 0;
-        top: 0;
-        width: 100%; /* Full width */
-        height: 100%; /* Full height */
-        overflow: auto; /* Enable scroll if needed */
-        background-color: rgb(0,0,0); /* Fallback color */
-        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-=======
-=======
->>>>>>> 62d2c94124b75c8e82b21635af05538784df4b3c
             font-family: 'MedievalSharp', cursive;
           display: none; /* Hidden by default */
           position: fixed; /* Stay in place */
@@ -43,33 +28,18 @@
           overflow: auto; /* Enable scroll if needed */
           background-color: rgb(0,0,0); /* Fallback color */
           background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
->>>>>>> 62d2c94124b75c8e82b21635af05538784df4b3c
         }
 
         /* Popup Content/Box */
         .popup-content {
-<<<<<<< HEAD
-<<<<<<< HEAD
-        background-color: #fefefe;
-        margin: 15% auto; /* 15% from the top and centered */
-        padding: 20px;
-        border: 1px solid #888;
-        width: 50%; /* Could be more or less, depending on screen size */
-        max-width: 400px;
-=======
-=======
->>>>>>> 62d2c94124b75c8e82b21635af05538784df4b3c
+
         text-align: center;
           background-color: #fefefe;
           margin: 15% auto; /* 15% from the top and centered */
           padding: 20px;
           border: 1px solid #888;
           width: 30%; /* Could be more or less, depending on screen size */
-            border-radius: 1px;
-<<<<<<< HEAD
->>>>>>> 62d2c94124b75c8e82b21635af05538784df4b3c
-=======
->>>>>>> 62d2c94124b75c8e82b21635af05538784df4b3c
+          border-radius: 1px;
         }
     </style>
     
@@ -97,17 +67,6 @@
 <!-- ###################### popup window ######################-->
         <div id="popup" class="popup">
           <div class="popup-content">
-<<<<<<< HEAD
-<<<<<<< HEAD
-            <h2>Result!</h2>
-            <div id="result"></div>
-            <div id="points"></div>
-            <div id="seconds"></div><br><br>
-            <div id="nextplayer"></div>
-            <button onclick="closepopup()">next player!</button>
-=======
-=======
->>>>>>> 62d2c94124b75c8e82b21635af05538784df4b3c
             <h2 id="result"></h2>
             <table>
                 <tr>
@@ -120,31 +79,11 @@
                 </tr>
             </table>
             <button class="nxt-btn" onclick="closepopup()">next player!</button>
-<<<<<<< HEAD
->>>>>>> 62d2c94124b75c8e82b21635af05538784df4b3c
-=======
->>>>>>> 62d2c94124b75c8e82b21635af05538784df4b3c
           </div>
         </div>
 <!-- ##########################################################--> 
 <!-- ###################### scoreboard ######################-->
         <div id="popupScoreboard" class="popupScoreboard">
-<<<<<<< HEAD
-<<<<<<< HEAD
-          <div class="popup-content">
-            <h2>Scoreboard!</h2>
-            <div id="winner" style="color: greenyellow"></div><br>
-            <h3>Total points:</h3>
-            <div id="pointsP1ges"></div>
-            <div id="pointsP2ges"></div><br>
-            <h3>Average time per question:</h3>
-            <div id="averageTimeP1"></div>
-            <div id="averageTimeP2"></div><br>
-            <button onclick="location.href='login_new.html';">logout</button>               
-            <button onclick="location.href='avatar_raphi.html';">restart</button>           
-=======
-=======
->>>>>>> 62d2c94124b75c8e82b21635af05538784df4b3c
           <div class="popupscor-content">
             <h2>Scoreboard</h2>
             <table>
@@ -184,10 +123,6 @@
                 <button class="logout-btn" onclick="location.href='login_new.html';">logout</button>               
                 <button class="restart-btn" onclick="location.href='avatar_raphi.html';">restart</button> 
             </div>
-<<<<<<< HEAD
->>>>>>> 62d2c94124b75c8e82b21635af05538784df4b3c
-=======
->>>>>>> 62d2c94124b75c8e82b21635af05538784df4b3c
           </div>
         </div>
 <!-- ##########################################################--> 
@@ -215,10 +150,6 @@
                 </div>
             </div>
         </div>
-<<<<<<< HEAD
-        </div>
-=======
->>>>>>> 6d2106313be9756b9bdf897ae071dd8151c18f15
         <script type="text/javascript" src="js/particles.js"></script>
         <script type="text/javascript" src="js/app.js"></script>
         
@@ -401,19 +332,9 @@
             window.setTimeout(function() {
                 popup.style.display = "block";
                 document.getElementById("result").innerHTML = result;
-<<<<<<< HEAD
-<<<<<<< HEAD
-                document.getElementById("points").innerHTML = "Points for this Answer: " + questweight;
-                document.getElementById("seconds").innerHTML = "required time: " + seconds + " seconds";
-                document.getElementById("nextplayer").innerHTML = "Next Player: " + nextplayer;
-=======
+
                 document.getElementById("points").innerHTML = questweight + " point(s)";
                 document.getElementById("seconds").innerHTML = seconds + " seconds";
->>>>>>> 62d2c94124b75c8e82b21635af05538784df4b3c
-=======
-                document.getElementById("points").innerHTML = questweight + " point(s)";
-                document.getElementById("seconds").innerHTML = seconds + " seconds";
->>>>>>> 62d2c94124b75c8e82b21635af05538784df4b3c
             }, 1000);
             
         }
@@ -455,16 +376,8 @@
                     totaltimeP2.push(seconds); 
                 }
         }
-        
-        
-        
-        
-    
     </script>
     
 </html>
 
-<!--
-
---> 
 
