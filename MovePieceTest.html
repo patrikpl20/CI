@@ -90,52 +90,111 @@ function move(dir) {
       setTimeout(function(){ myGamePiece.speedX = 0; myGamePiece.speedY = 0; }, 1000);
 }
 
-    if (dir == "3") {myGamePiece.speedY = -0.7; myGamePiece.speedX = 1.3;
+    if (dir == "3") {myGamePiece.speedY = -0.6; myGamePiece.speedX = 1.0;
       setTimeout(function(){ myGamePiece.speedX = 0; myGamePiece.speedY = 0; }, 1000);
 }
 
-    if (dir == "4") {myGamePiece.speedY = -0.4; myGamePiece.speedX = 3;
+    if (dir == "4") {myGamePiece.speedY = -0.16; myGamePiece.speedX = 1.16;
       setTimeout(function(){ myGamePiece.speedX = 0; myGamePiece.speedY = 0; }, 1000);
 }
 
-    if (dir == "5") {myGamePiece.speedY = -0.7; myGamePiece.speedX = 2;
+    if (dir == "5") {myGamePiece.speedY = -0.27; myGamePiece.speedX = 0.78;
       setTimeout(function(){ myGamePiece.speedX = 0; myGamePiece.speedY = 0; }, 1000);
 }
-    if (dir == "6") {myGamePiece.speedY = -3; myGamePiece.speedX = 1;
-      setTimeout(function(){ myGamePiece.speedY = -1; myGamePiece.speedX = -4.9; setTimeout(function(){ myGamePiece.speedX = 0; myGamePiece.speedY = 0; }, 500); }, 500);
+    if (dir == "6") {myGamePiece.speedY = -1.05; myGamePiece.speedX = 0.53;
+      setTimeout(function(){ myGamePiece.speedY = -0.4; myGamePiece.speedX = -2; setTimeout(function(){ myGamePiece.speedX = 0; myGamePiece.speedY = 0; }, 500); }, 500);
 }
-    if (dir == "7") {myGamePiece.speedY = 0.31; myGamePiece.speedX = -3.5;
+    if (dir == "7") {myGamePiece.speedY = 0.10; myGamePiece.speedX = -1.35;
       setTimeout(function(){ myGamePiece.speedX = 0; myGamePiece.speedY = 0; }, 1000);
 }
-    if (dir == "8") {myGamePiece.speedY = -0.5; myGamePiece.speedX = -2.2;
+    if (dir == "8") {myGamePiece.speedY = -0.25; myGamePiece.speedX = -0.88;
       setTimeout(function(){ myGamePiece.speedX = 0; myGamePiece.speedY = 0; }, 1000);
 }
-    if (dir == "9") {myGamePiece.speedY = -2.7; myGamePiece.speedX = 0.4;
+    if (dir == "9") {myGamePiece.speedY = -0.97; myGamePiece.speedX = 0.15;
       setTimeout(function(){ myGamePiece.speedX = 0; myGamePiece.speedY = 0; }, 1000);
 }
-    if (dir == "10") {myGamePiece.speedY = -0.8; myGamePiece.speedX = 3.15;
+    if (dir == "10") {myGamePiece.speedY = -0.3; myGamePiece.speedX = 1.2;
       setTimeout(function(){ myGamePiece.speedX = 0; myGamePiece.speedY = 0; }, 1000);
 }
-    if (dir == "11") {myGamePiece.speedY = -0.2; myGamePiece.speedX = 2.7;
+    if (dir == "11") {myGamePiece.speedY = -0.13; myGamePiece.speedX = 1.05;
       setTimeout(function(){ myGamePiece.speedX = 0; myGamePiece.speedY = 0; }, 1000);
 }
-    if (dir == "12") {myGamePiece.speedY = -2; myGamePiece.speedX = 3;
-      setTimeout(function(){ myGamePiece.speedY = -1.5; myGamePiece.speedX = -2; setTimeout(function(){ myGamePiece.speedX = 0; myGamePiece.speedY = 0; }, 500); }, 500);
+    if (dir == "12") {myGamePiece.speedY = -0.75; myGamePiece.speedX = 1.5;
+      setTimeout(function(){ myGamePiece.speedY = -0.55; myGamePiece.speedX = -1; setTimeout(function(){ myGamePiece.speedX = 0; myGamePiece.speedY = 0; }, 500); }, 500);
 }
-    if (dir == "13") {myGamePiece.speedY = -1; myGamePiece.speedX = -1.5;
+    if (dir == "13") {myGamePiece.speedY = -0.4; myGamePiece.speedX = -0.6;
       setTimeout(function(){ myGamePiece.speedX = 0; myGamePiece.speedY = 0; }, 1000);
 }
-    if (dir == "14") {myGamePiece.speedY = -0.9; myGamePiece.speedX = -1.8;
+    if (dir == "14") {myGamePiece.speedY = -0.3; myGamePiece.speedX = -0.7;
       setTimeout(function(){ myGamePiece.speedX = 0; myGamePiece.speedY = 0; }, 1000);
 }
-    if (dir == "15") {myGamePiece.speedY = -1.5; myGamePiece.speedX = -0.5;
+    if (dir == "15") {myGamePiece.speedY = -0.6; myGamePiece.speedX = -0.18;
       setTimeout(function(){ myGamePiece.speedX = 0; myGamePiece.speedY = 0; }, 1000);
+}
+}
+
+function zug(zug1, zug2, zug3){
+this.zug1=zug1;
+this.zug2=zug2;
+this.zug3=zug3;
+
+move(zug1);
+
+if(zug2 != "0"){
+  setTimeout(function(){
+    move(zug2);
+    if(zug3 != "0"){
+      setTimeout(function(){
+        move(zug3)
+    },1000); }
+//  zug(zug3,'0','0')
+},1000);
+//  if(zug3 != "0"){
+//    setTimeout(function(){move(zug3)},2000);
+  }
 }
 
 
-}
 
 
+
+
+//async function eins(){
+  // create a new promise inside of the async function
+// let promise = new Promise((resolve, reject) => {
+//   setTimeout(() => resolve(true), 1000) // resolve
+//   myGamePiece.speedY = -0.6; myGamePiece.speedX = -0.63;
+//     setTimeout(function(){ myGamePiece.speedX = 0; myGamePiece.speedY = 0; }, 1000);
+// });
+
+ // wait for the promise to resolve
+// let result = await promise;
+
+ // console log the result (true)
+// console.log(result);
+//}
+
+//async function zwei(){
+  // create a new promise inside of the async function
+// let promise = new Promise((resolve, reject) => {
+//   setTimeout(() => resolve(true), 1000) // resolve
+//   myGamePiece.speedY = -0.62; myGamePiece.speedX = -0.8;
+//    setTimeout(function(){ myGamePiece.speedX = 0; myGamePiece.speedY = 0; }, 1000);
+// });
+
+ // wait for the promise to resolve
+// let result = await promise;
+
+ // console log the result (true)
+// console.log(result);
+//}
+
+
+//async function firstFunction(){
+//  for(i=0;i<x;i++){
+//    // do something
+//  return;
+//};
 
 //function clearmove() {
 //    myGamePiece.image.src = "pics/GamePiece.png";
@@ -163,6 +222,11 @@ function move(dir) {
   <button onmousedown="move('13')" >13</button>
   <button onmousedown="move('14')" >14</button>
   <button onmousedown="move('15')" >15</button>
+  <button onmousedown="zug('1', '2', '3')">1,2,3</button>
+  <button onmousedown="zug('4', '5', '6')">4,5,6</button>
+  <button onmousedown="zug('7', '8', '9')">7,8,9</button>
+  <button onmousedown="zug('10', '11', '12')">10,11,12</button>
+  <button onmousedown="zug('13', '14', '15')">13,14,15</button>
 </div>
 
 <p>Update the background before updating other components to make sure the other components are dispalyed on top of the background.</p>
