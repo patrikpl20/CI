@@ -16,6 +16,7 @@
         }
             
         .popupScoreboard {
+            font-family: 'MedievalSharp', cursive;
           display: none; /* Hidden by default */
           position: fixed; /* Stay in place */
           z-index: 10000; /* Sit on top */
@@ -30,11 +31,13 @@
 
         /* Popup Content/Box */
         .popup-content {
+        text-align: center;
           background-color: #fefefe;
           margin: 15% auto; /* 15% from the top and centered */
           padding: 20px;
           border: 1px solid #888;
-          width: 50%; /* Could be more or less, depending on screen size */
+          width: 30%; /* Could be more or less, depending on screen size */
+            border-radius: 1px;
         }
     </style>
     
@@ -54,7 +57,7 @@
                 <div class="row">
                     <div class="col span-1-of-3"><img src="pics/logocastle.png" alt="logo" class="logo"></div>
                     <div class="col span-1-of-3"><h1>Castle Rallye</h1></div>
-                    <div class="col span-1-of-3"><h2>Logout</h2></div>
+                    <div class="col span-1-of-3"><a class="logout" href="login_new.html">Logout</a></div>
                 </div>
             </nav>
         </header>
@@ -62,27 +65,80 @@
 <!-- ###################### popup window ######################-->
         <div id="popup" class="popup">
           <div class="popup-content">
-            <h2>Result!</h2>
-            <div id="result"></div>
-            <div id="points"></div>
-            <div id="seconds"></div>
-            <button onclick="closepopup()">next player!</button>
+            <h2 id="result"></h2>
+            <table>
+                <tr>
+                    <th>Correct answer:</th>
+                    <th id="points"></th>  
+                </tr>
+                <tr>
+                    <th>Required time:</th>
+                    <th id="seconds"></th>  
+                </tr>
+            </table>
+            <button class="nxt-btn" onclick="closepopup()">next player!</button>
           </div>
         </div>
 <!-- ##########################################################--> 
 <!-- ###################### scoreboard ######################-->
         <div id="popupScoreboard" class="popupScoreboard">
-          <div class="popup-content">
-            <h2>Scoreboard!</h2>
-            <button onclick="location.href='login_new.html';">logout</button>               <!-- TODO -->
-            <button onclick="location.href='avatar_raphi.html';">restart</button>           <!-- TODO -->
+          <div class="popupscor-content">
+            <h2>Scoreboard</h2>
+            <table>
+                <tr>
+                    <th></th>
+                    <th>Player 1</th>
+                    <th>Player 2</th>
+                </tr>
+                <tr>
+                    <th>fastest answering time</th>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>&#8709; answering time</th>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>total points</th>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>right answers</th>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>wrong answers</th>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+            <p>What would you like to do?</p>  
+            <div class="btn-choice">
+                <button class="logout-btn" onclick="location.href='login_new.html';">logout</button>               
+                <button class="restart-btn" onclick="location.href='avatar_raphi.html';">restart</button> 
+            </div>
           </div>
         </div>
 <!-- ##########################################################--> 
-        <div class="row gamecon">
+        <div class="filler"><div class="row gamecon">
             <img class="board b1" src="pics/Bild_1.png">   
             <img class="board b2" src="pics/Bild_1.png">  
             <div class="content">
+                <div class="upper-cont">
+                    <div class="col span-1-of-3">
+                        <h4>Player 1</h4>
+                        <p>Points</p>
+                    </div>
+                    <div class="col span-1-of-3"><p>Timer</p></div>
+                    <div class="col span-1-of-3">
+                        <h4>Player 2</h4>
+                        <p>Points</p>
+                    </div>
+                </div>
                 <div class="question"><h3 id="q"></h3></div>
                 <div class="choices">
                     <div class="choice" id="A" onclick="submitAnswer('A')"><p id="A1"></p></div>
@@ -92,7 +148,7 @@
                 </div>
             </div>
         </div>
-        
+        </div>
         <script type="text/javascript" src="js/particles.js"></script>
         <script type="text/javascript" src="js/app.js"></script>
         
@@ -220,7 +276,7 @@
                 document.getElementById("A4").style.color = "red";}
             
             if(answerUser == trueanswer){
-                result = "Right Answer!";
+                result = "Your answer is right!";
                 if(questcount % 2 == 0){
                     pointsP1 = pointsP1 + questweight;         
                 }
@@ -228,7 +284,7 @@
                     pointsP2 = pointsP2 + questweight;
                 }
             }else{
-                result = "False Answer!";
+                result = "Your answer is wrong!";
             }
             
             if(pointsP1 > 15 || pointsP2 > 15){
@@ -243,8 +299,8 @@
             window.setTimeout(function() {
                 popup.style.display = "block";
                 document.getElementById("result").innerHTML = result;
-                document.getElementById("points").innerHTML = "Points for this Answer: " + questweight;
-                document.getElementById("seconds").innerHTML = "required time: " + seconds + " seconds";
+                document.getElementById("points").innerHTML = questweight + " point(s)";
+                document.getElementById("seconds").innerHTML = seconds + " seconds";
             }, 1000);
             
         }
