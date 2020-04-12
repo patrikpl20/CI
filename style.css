@@ -51,6 +51,25 @@ header h2 {
     padding-top: 8%;
 }
 
+.logout {
+    float: right;
+    font-weight: 500;
+    font-size: 110%;
+    padding-top: 9%;
+    color: #4a4a4a;
+}
+
+.logout:link,
+.logout:visited{
+    text-decoration: none;
+}
+
+.logout:hover,
+.logout:active {
+    border-bottom: 2px solid #4a4a4a;
+    
+}
+
 header img{
     width: 40%;
     margin: 0;
@@ -60,7 +79,9 @@ header img{
 /* BUTTONS */
 /* ---------------------- */
 
-input[type=submit] {
+input[type=submit],
+.nxt-btn,
+.logout-btn{
     display: inline-block;
     background-color: #f05c80;
     border: 1px solid #f05c80;
@@ -69,7 +90,11 @@ input[type=submit] {
 }
 
 input[type=submit]:hover,
-input[type=submit]:active {
+input[type=submit]:active,
+.nxt-btn:hover,
+.nxt-btn:active, 
+.logout-btn:hover,
+.logout-btn:active {
     background-color: #ed3d68;
     border: 1px solid #ed3d68;
 }
@@ -79,7 +104,10 @@ input[type=submit]:active {
     margin-top: 3%;
 }
 
-.logbtn input[type=submit] {
+.logbtn input[type=submit],
+.nxt-btn,
+.logout-btn,
+.restart-btn{
     padding: 10px 30px;
     font-weight: 400;
     border-radius: 200px;
@@ -97,6 +125,31 @@ input[type=submit]:active {
     font-weight: 600;
     font-size: 100%;
 }
+
+/* Popup after Answer */
+
+
+.nxt-btn{
+    margin-top: 3%;
+}
+
+/* Scoreboard popup */
+
+.restart-btn {
+    display: inline-block;
+    background-color: #22A7F0;
+    border: 1px solid #22A7F0;
+    color: #fff;
+    transition: background-color 0.2s, border 0.2s, color 0.2s;
+}
+
+.restart-btn:hover,
+.restart-btn:active {
+    background-color: #0f97e1;
+    border: 1px solid #0f97e1;
+}
+
+
 
 /* ---------------------- */
 /* Login */
@@ -210,16 +263,23 @@ background: linear-gradient(45deg, #22A7F0, #2ECC71);
 }
 
 
+.filler {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 88vh;
+    
+}
+
 .gamecon {
-    height: 450px;
-    margin-top: 2%;
+    width: 1140px;
     background-color: #f1f2f6;
     border-radius: 1%;
     position: relative;
 }
 
 .gamecon img {
-    width: 225px;
+    width: 230px;
     padding: 0;
 }
 
@@ -231,16 +291,31 @@ background: linear-gradient(45deg, #22A7F0, #2ECC71);
 .b2 {
     float: right;
     border-right: solid black;
-    transform: scaleX(-1);
+    /* transform: scaleX(-1); */
 }
+
+.upper-cont div {
+    margin: 5px 0;
+    padding: 0;
+}
+
+.upper-cont div:first-child {
+    text-align: left;
+    padding-left: 8px;
+} 
+
+.upper-cont div:last-child{
+    text-align: right;
+    padding-right: 8px;}
+
 
 .content {
     text-align: center;
 }
 
 .content h3 {
-    line-height: 14vh;
-    height: 14vh;
+    line-height: 8vh;
+    height: 8vh;
     border-bottom: solid black;
 }
 
@@ -251,16 +326,60 @@ background: linear-gradient(45deg, #22A7F0, #2ECC71);
     margin-left: auto;
     margin-right: auto;
     margin-top: 30px;
-    font-size: 150%;
+    font-size: 100%;
     padding: 5px;
     border: 0.5px solid #bebebe;
-    transition: 0.2s background-color; 0.2s font-size; 0.2s color; 0.2s border;
+    transition: 0.2s background-color; 0.2s color; 0.2s border;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.choice:hover {
+.choice:hover,
+.choice:active{
     cursor: pointer;
     background-color: #ed3d68;
-    font-size: 160%;
     color: #fff;
-    border: #ed3d68;
+    border: 0.5px solid #ed3d68;
+}
+
+.popup-content table {
+    margin: 0 auto;
+    padding-top: 10px;
+}
+
+.popup-content table th:first-child {
+    text-align: end;
+    padding-right: 5px;
+}
+
+.popupscor-content {
+    text-align: center;
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%; /* Could be more or less, depending on screen size */
+    border-radius: 1px;
+}
+
+.popupscor-content table {
+    margin: 15px auto;
+    border-spacing: 5px
+}
+
+.popupscor-content table tr {
+}
+
+.popupscor-content table th:first-child{
+    text-align: left;
+    padding-right: 15px;
+}
+
+.popupscor-content table th:last-child{
+    padding-left: 15px;
+}
+
+.btn-choice {
+    margin-top: 10px
 }

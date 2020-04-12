@@ -1,21 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-        <style>
+    <style>
         /* Popup (background) */
         .popup {
-          display: none; /* Hidden by default */
-          position: fixed; /* Stay in place */
-          z-index: 10000; /* Sit on top */
-          left: 0;
-          top: 0;
-          width: 100%; /* Full width */
-          height: 100%; /* Full height */
-          overflow: auto; /* Enable scroll if needed */
-          background-color: rgb(0,0,0); /* Fallback color */
-          background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 10000; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
         }
-            
+        
+
         .popupScoreboard {
+<<<<<<< HEAD
+<<<<<<< HEAD
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 10000; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+=======
+=======
+>>>>>>> 62d2c94124b75c8e82b21635af05538784df4b3c
+            font-family: 'MedievalSharp', cursive;
           display: none; /* Hidden by default */
           position: fixed; /* Stay in place */
           z-index: 10000; /* Sit on top */
@@ -26,15 +43,33 @@
           overflow: auto; /* Enable scroll if needed */
           background-color: rgb(0,0,0); /* Fallback color */
           background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+>>>>>>> 62d2c94124b75c8e82b21635af05538784df4b3c
         }
 
         /* Popup Content/Box */
         .popup-content {
+<<<<<<< HEAD
+<<<<<<< HEAD
+        background-color: #fefefe;
+        margin: 15% auto; /* 15% from the top and centered */
+        padding: 20px;
+        border: 1px solid #888;
+        width: 50%; /* Could be more or less, depending on screen size */
+        max-width: 400px;
+=======
+=======
+>>>>>>> 62d2c94124b75c8e82b21635af05538784df4b3c
+        text-align: center;
           background-color: #fefefe;
           margin: 15% auto; /* 15% from the top and centered */
           padding: 20px;
           border: 1px solid #888;
-          width: 50%; /* Could be more or less, depending on screen size */
+          width: 30%; /* Could be more or less, depending on screen size */
+            border-radius: 1px;
+<<<<<<< HEAD
+>>>>>>> 62d2c94124b75c8e82b21635af05538784df4b3c
+=======
+>>>>>>> 62d2c94124b75c8e82b21635af05538784df4b3c
         }
     </style>
     
@@ -54,7 +89,7 @@
                 <div class="row">
                     <div class="col span-1-of-3"><img src="pics/logocastle.png" alt="logo" class="logo"></div>
                     <div class="col span-1-of-3"><h1>Castle Rallye</h1></div>
-                    <div class="col span-1-of-3"><h2>Logout</h2></div>
+                    <div class="col span-1-of-3"><a class="logout" href="login_new.html">Logout</a></div>
                 </div>
             </nav>
         </header>
@@ -62,27 +97,115 @@
 <!-- ###################### popup window ######################-->
         <div id="popup" class="popup">
           <div class="popup-content">
+<<<<<<< HEAD
+<<<<<<< HEAD
             <h2>Result!</h2>
             <div id="result"></div>
             <div id="points"></div>
-            <div id="seconds"></div>
+            <div id="seconds"></div><br><br>
+            <div id="nextplayer"></div>
             <button onclick="closepopup()">next player!</button>
+=======
+=======
+>>>>>>> 62d2c94124b75c8e82b21635af05538784df4b3c
+            <h2 id="result"></h2>
+            <table>
+                <tr>
+                    <th>Correct answer:</th>
+                    <th id="points"></th>  
+                </tr>
+                <tr>
+                    <th>Required time:</th>
+                    <th id="seconds"></th>  
+                </tr>
+            </table>
+            <button class="nxt-btn" onclick="closepopup()">next player!</button>
+<<<<<<< HEAD
+>>>>>>> 62d2c94124b75c8e82b21635af05538784df4b3c
+=======
+>>>>>>> 62d2c94124b75c8e82b21635af05538784df4b3c
           </div>
         </div>
 <!-- ##########################################################--> 
 <!-- ###################### scoreboard ######################-->
         <div id="popupScoreboard" class="popupScoreboard">
+<<<<<<< HEAD
+<<<<<<< HEAD
           <div class="popup-content">
             <h2>Scoreboard!</h2>
-            <button onclick="location.href='login_new.html';">logout</button>               <!-- TODO -->
-            <button onclick="location.href='avatar_raphi.html';">restart</button>           <!-- TODO -->
+            <div id="winner" style="color: greenyellow"></div><br>
+            <h3>Total points:</h3>
+            <div id="pointsP1ges"></div>
+            <div id="pointsP2ges"></div><br>
+            <h3>Average time per question:</h3>
+            <div id="averageTimeP1"></div>
+            <div id="averageTimeP2"></div><br>
+            <button onclick="location.href='login_new.html';">logout</button>               
+            <button onclick="location.href='avatar_raphi.html';">restart</button>           
+=======
+=======
+>>>>>>> 62d2c94124b75c8e82b21635af05538784df4b3c
+          <div class="popupscor-content">
+            <h2>Scoreboard</h2>
+            <table>
+                <tr>
+                    <th></th>
+                    <th>Player 1</th>
+                    <th>Player 2</th>
+                </tr>
+                <tr>
+                    <th>fastest answering time</th>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>&#8709; answering time</th>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>total points</th>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>right answers</th>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>wrong answers</th>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+            <p>What would you like to do?</p>  
+            <div class="btn-choice">
+                <button class="logout-btn" onclick="location.href='login_new.html';">logout</button>               
+                <button class="restart-btn" onclick="location.href='avatar_raphi.html';">restart</button> 
+            </div>
+<<<<<<< HEAD
+>>>>>>> 62d2c94124b75c8e82b21635af05538784df4b3c
+=======
+>>>>>>> 62d2c94124b75c8e82b21635af05538784df4b3c
           </div>
         </div>
 <!-- ##########################################################--> 
-        <div class="row gamecon">
+        <div class="filler"><div class="row gamecon">
             <img class="board b1" src="pics/Bild_1.png">   
-            <img class="board b2" src="pics/Bild_1.png">  
+            <img class="board b2" src="pics/Bild_2.png">  
             <div class="content">
+                <div class="upper-cont">
+                    <div class="col span-1-of-3">
+                        <h4>Player 1</h4>
+                        <p>Points</p>
+                    </div>
+                    <div class="col span-1-of-3"><p>Timer</p></div>
+                    <div class="col span-1-of-3">
+                        <h4>Player 2</h4>
+                        <p>Points</p>
+                    </div>
+                </div>
                 <div class="question"><h3 id="q"></h3></div>
                 <div class="choices">
                     <div class="choice" id="A" onclick="submitAnswer('A')"><p id="A1"></p></div>
@@ -92,6 +215,10 @@
                 </div>
             </div>
         </div>
+<<<<<<< HEAD
+        </div>
+=======
+>>>>>>> 6d2106313be9756b9bdf897ae071dd8151c18f15
         <script type="text/javascript" src="js/particles.js"></script>
         <script type="text/javascript" src="js/app.js"></script>
         
@@ -100,8 +227,10 @@
     
     <script>
         var qnr, quest, isused, x, z, usedquestionlist, questweight, answerattr1, answerattr2, answerattr3, answerattr4;
-        var pointsP1, pointsP2, result, starter, startTime, endTime, seconds;
+        var pointsP1, pointsP2, result, starter, startTime, endTime, seconds, winner, totaltimeP1, totaltimeP2, nextplayer, currplayer, averageTimeP1, averageTimeP2;
         usedquestionlist=[];
+        totaltimeP1=[];
+        totaltimeP2=[];
         pointsP1 = 0;
         pointsP2 = 0;
         var questcount = 0;
@@ -219,19 +348,49 @@
                 document.getElementById("A4").style.color = "red";}
             
             if(answerUser == trueanswer){
-                result = "Right Answer!";
+                result = "Your answer is right!";
                 if(questcount % 2 == 0){
-                    pointsP1 = pointsP1 + questweight;         
+                    pointsP1 = pointsP1 + questweight;
+                    nextplayer = player2;
+                    currplayer = player1;
                 }
                 else{
                     pointsP2 = pointsP2 + questweight;
+                    nextplayer = player1;
+                    currplayer = player2;
                 }
             }else{
-                result = "False Answer!";
+                result = "Your answer is wrong!";
             }
             
-            if(pointsP1 > 15 || pointsP2 > 15){
+            if(pointsP1 > 5 || pointsP2 > 5){
+                if(pointsP1 > 5){
+                    winner = player1;
+                }else{
+                    winner = player2;
+                }
+                
+                //durchschnittszeit berechnen
+                var p1, p2, help1, help2;
+                help1 = 0;
+                help2 = 0;
+                for(p1 = 0; p1 < totaltimeP1.length; p1++){
+                    help1 = help1 + totaltimeP1[p1];
+                }
+                averageTimeP1 = help1 / totaltimeP1.length;
+                
+                for(p2 = 0; p2 < totaltimeP2.length; p2++){
+                    help2 = help2 + totaltimeP2[p2];
+                }
+                averageTimeP2 = help2 / totaltimeP2.length;
+                
                 popupScoreboard.style.display = "block";
+                document.getElementById("pointsP1ges").innerHTML = player1 + ": " + pointsP1;
+                document.getElementById("pointsP2ges").innerHTML = player2 + ": " + pointsP2;
+                document.getElementById("averageTimeP1").innerHTML = player1 + ": " + averageTimeP1 + " s";
+                document.getElementById("averageTimeP2").innerHTML = player2 + ": " + averageTimeP2 + " s";
+                document.getElementById("winner").innerHTML = "The winner is " + winner + "!!";
+                
             }
             
             questcount++;
@@ -242,8 +401,19 @@
             window.setTimeout(function() {
                 popup.style.display = "block";
                 document.getElementById("result").innerHTML = result;
+<<<<<<< HEAD
+<<<<<<< HEAD
                 document.getElementById("points").innerHTML = "Points for this Answer: " + questweight;
                 document.getElementById("seconds").innerHTML = "required time: " + seconds + " seconds";
+                document.getElementById("nextplayer").innerHTML = "Next Player: " + nextplayer;
+=======
+                document.getElementById("points").innerHTML = questweight + " point(s)";
+                document.getElementById("seconds").innerHTML = seconds + " seconds";
+>>>>>>> 62d2c94124b75c8e82b21635af05538784df4b3c
+=======
+                document.getElementById("points").innerHTML = questweight + " point(s)";
+                document.getElementById("seconds").innerHTML = seconds + " seconds";
+>>>>>>> 62d2c94124b75c8e82b21635af05538784df4b3c
             }, 1000);
             
         }
@@ -272,12 +442,18 @@
         };
         
         function endtimer() {
-          endTime = new Date();
-          var timeDiff = endTime - startTime; //in ms
-          timeDiff /= 1000;
-
-          // get seconds 
-          seconds = Math.round(timeDiff);
+            endTime = new Date();
+            var timeDiff = endTime - startTime; //in ms
+            timeDiff /= 1000; 
+            seconds = Math.round(timeDiff);
+            seconds = parseInt(seconds);
+            
+            if(questcount % 2 == 0){
+                    totaltimeP1.push(seconds);       
+                }
+                else{
+                    totaltimeP2.push(seconds); 
+                }
         }
         
         
