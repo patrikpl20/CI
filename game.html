@@ -77,6 +77,10 @@
                     <th>Required time:</th>
                     <th id="seconds"></th>  
                 </tr>
+                <tr>
+                    <th>Next Player:</th>
+                    <th id="nextplayer"></th>  
+                </tr>
             </table>
             <button class="nxt-btn" onclick="closepopup()">next player!</button>
           </div>
@@ -86,36 +90,27 @@
         <div id="popupScoreboard" class="popupScoreboard">
           <div class="popupscor-content">
             <h2>Scoreboard</h2>
+            <div id="winner" style="color: greenyellow"></div><br>
             <table>
                 <tr>
                     <th></th>
-                    <th>Player 1</th>
-                    <th>Player 2</th>
+                    <th><p id="playername1"></p></th>
+                    <th><p id="playername2"></p></th>
                 </tr>
                 <tr>
-                    <th>fastest answering time</th>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <th>&#8709; answering time</th>
-                    <td></td>
-                    <td></td>
+                    <th>Average answering time</th>
+                    <td><p id="averageTimeP1"></p></td>
+                    <td><p id="averageTimeP2"></p></td>
                 </tr>
                 <tr>
                     <th>total points</th>
-                    <td></td>
-                    <td></td>
+                    <td><p id="pointsP1ges"></p></td>
+                    <td><p id="pointsP2ges"></p></td>
                 </tr>
                 <tr>
                     <th>right answers</th>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <th>wrong answers</th>
-                    <td></td>
-                    <td></td>
+                    <td><p id="rightp1"></p></td>
+                    <td><p id="rightp2"></p></td>
                 </tr>
             </table>
             <p>What would you like to do?</p>  
@@ -132,13 +127,13 @@
             <div class="content">
                 <div class="upper-cont">
                     <div class="col span-1-of-3">
-                        <h4>Player 1</h4>
-                        <p>Points</p>
+                        <h4><p id="headplayer1"></p></h4>
+                        <p id="currpointp1"></p>
                     </div>
-                    <div class="col span-1-of-3"><p>Timer</p></div>
+                    <div class="col span-1-of-3"><p></p></div>
                     <div class="col span-1-of-3">
-                        <h4>Player 2</h4>
-                        <p>Points</p>
+                        <h4><p id="headplayer2"></p></h4>
+                        <p id="currpointp2"></p>
                     </div>
                 </div>
                 <div class="question"><h3 id="q"></h3></div>
@@ -157,17 +152,25 @@
     </body>
     
     <script>
-        var qnr, quest, isused, x, z, usedquestionlist, questweight, answerattr1, answerattr2, answerattr3, answerattr4;
+        var qnr, quest, isused, x, z, usedquestionlist, questweight, answerattr1, answerattr2, answerattr3, answerattr4, rightP1, rightP2;
         var pointsP1, pointsP2, result, starter, startTime, endTime, seconds, winner, totaltimeP1, totaltimeP2, nextplayer, currplayer, averageTimeP1, averageTimeP2;
         usedquestionlist=[];
         totaltimeP1=[];
         totaltimeP2=[];
         pointsP1 = 0;
         pointsP2 = 0;
+        rightP1 =0;
+        rightP2 =0;
         var questcount = 0;
         var xmlDoc;
         questweight = 0;
         seconds = 0;
+        
+
+        
+        document.getElementById("currpointp1").innerHTML = pointsP1;
+        document.getElementById("currpointp2").innerHTML = pointsP2;
+        
         
         if(localStorage.getItem("first") != null && localStorage.getItem("second") != null){
             var player1 = localStorage.getItem("first");
@@ -176,11 +179,13 @@
             var player1 = "Player1";
             var player2 = "Player2";
         }
-    
-
         var player2 = localStorage.getItem("second");
         
         
+        document.getElementById("headplayer1").innerHTML = player1;
+        document.getElementById("headplayer2").innerHTML = player2;
+        document.getElementById("headplayer1").style.color = "red";
+
         
         
         var xhttp;
@@ -282,11 +287,16 @@
                 result = "Your answer is right!";
                 if(questcount % 2 == 0){
                     pointsP1 = pointsP1 + questweight;
+                    rightP1++;
+                    
                     nextplayer = player2;
                     currplayer = player1;
+                    
                 }
                 else{
                     pointsP2 = pointsP2 + questweight;
+                    rightP2++;
+                    
                     nextplayer = player1;
                     currplayer = player2;
                 }
@@ -294,7 +304,7 @@
                 result = "Your answer is wrong!";
             }
             
-            if(pointsP1 > 5 || pointsP2 > 5){
+            if(pointsP1 > 2 || pointsP2 > 2){
                 if(pointsP1 > 5){
                     winner = player1;
                 }else{
@@ -302,7 +312,7 @@
                 }
                 
                 //durchschnittszeit berechnen
-                var p1, p2, help1, help2;
+                var p1, p2, help1, help2, help3, help4;
                 help1 = 0;
                 help2 = 0;
                 for(p1 = 0; p1 < totaltimeP1.length; p1++){
@@ -315,26 +325,42 @@
                 }
                 averageTimeP2 = help2 / totaltimeP2.length;
                 
+                
                 popupScoreboard.style.display = "block";
-                document.getElementById("pointsP1ges").innerHTML = player1 + ": " + pointsP1;
-                document.getElementById("pointsP2ges").innerHTML = player2 + ": " + pointsP2;
-                document.getElementById("averageTimeP1").innerHTML = player1 + ": " + averageTimeP1 + " s";
-                document.getElementById("averageTimeP2").innerHTML = player2 + ": " + averageTimeP2 + " s";
-                document.getElementById("winner").innerHTML = "The winner is " + winner + "!!";
+                document.getElementById("pointsP1ges").innerHTML = pointsP1;
+                document.getElementById("pointsP2ges").innerHTML = pointsP2;
+                document.getElementById("averageTimeP1").innerHTML = averageTimeP1 + " s";
+                document.getElementById("averageTimeP2").innerHTML = averageTimeP2 + " s";
+                document.getElementById("rightp1").innerHTML = rightP1;
+                document.getElementById("rightp2").innerHTML = rightP2;
+                document.getElementById("playername1").innerHTML = player1;
+                document.getElementById("playername2").innerHTML = player2;
+                document.getElementById("fastestP1").innerHTML = help3 + " s";
+                document.getElementById("fastestP1").innerHTML = help4 + " s";
+                document.getElementById("winner").innerHTML = "The winner is " + winner;   
                 
             }
             
             questcount++;
             
-            endtimer();
-            
+            endtimer();        
             
             window.setTimeout(function() {
                 popup.style.display = "block";
                 document.getElementById("result").innerHTML = result;
-
                 document.getElementById("points").innerHTML = questweight + " point(s)";
                 document.getElementById("seconds").innerHTML = seconds + " seconds";
+                document.getElementById("nextplayer").innerHTML = nextplayer;
+                document.getElementById("currpointp1").innerHTML = pointsP1;
+                document.getElementById("currpointp2").innerHTML = pointsP2;
+                
+                if(nextplayer == player1){
+                    document.getElementById("headplayer1").style.color = "red";
+                    document.getElementById("headplayer2").style.color = "black";
+                }else{
+                    document.getElementById("headplayer2").style.color = "red";
+                    document.getElementById("headplayer1").style.color = "black";
+                }
             }, 1000);
             
         }
