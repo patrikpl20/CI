@@ -227,6 +227,37 @@ if(zug2 != "0"){
   <button onmousedown="zug('7', '8', '9')">7,8,9</button>
   <button onmousedown="zug('10', '11', '12')">10,11,12</button>
   <button onmousedown="zug('13', '14', '15')">13,14,15</button>
+  <button onmousedown="setTimeout(function(){
+    move('1'); setTimeout(function(){
+       move('2'); setTimeout(function(){
+          move('3'); setTimeout(function(){
+             move('4'); setTimeout(function(){
+                move('5'); setTimeout(function(){
+                   move('6'); setTimeout(function(){
+                      move('7'); setTimeout(function(){
+                         move('8'); setTimeout(function(){
+                            move('9'); setTimeout(function(){
+                               move('10'); setTimeout(function(){
+                                  move('11'); setTimeout(function(){
+                                     move('12'); setTimeout(function(){
+                                        move('13'); setTimeout(function(){
+                                           move('14'); setTimeout(function(){
+                                              move('15');
+                                           }, 1000);
+                                        }, 1000);
+                                     }, 1000);
+                                   }, 1000);
+                                 }, 1000);
+                               }, 1000);
+                             }, 1000);
+                           }, 1000);
+                         }, 1000);
+                       }, 1000);
+                     }, 1000);
+                   }, 1000);
+                 }, 1000);
+               }, 1000);
+             }, 1000);">alle</button>
 </div>
 
 <p>Update the background before updating other components to make sure the other components are dispalyed on top of the background.</p>
