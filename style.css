@@ -290,7 +290,7 @@ background: linear-gradient(45deg, #22A7F0, #2ECC71);
 
 .b2 {
     float: right;
-    border-right: solid black;
+    border-left: solid black;
     /* transform: scaleX(-1); */
 }
 
