@@ -16,16 +16,16 @@ var myGamePiece;
 var myBackground;
 
 function startGame() {
-    myGamePiece = new component(30, 40, "pics/GamePiece.png", 325, 1155, "image");
-    myBackground = new component(600, 1200, "pics/Bild_1.png", 0, 0, "image");
+    myGamePiece = new component(20, 28, "pics/GamePiece.png", 120, 430, "image");
+    myBackground = new component(232.67, 460, "pics/Bild_1.png", 0, 0, "image");
     myGameArea.start();
 }
 
 var myGameArea = {
     canvas : document.createElement("canvas"),
     start : function() {
-        this.canvas.width = 600;
-        this.canvas.height = 1200;
+        this.canvas.width = 232.67;
+        this.canvas.height = 460;
         this.context = this.canvas.getContext("2d");
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
         this.frameNo = 0;
@@ -83,14 +83,14 @@ function move(dir) {
     if (dir == "down") {myGamePiece.speedY = 1; }
     if (dir == "left") {myGamePiece.speedX = -1; }
     if (dir == "right") {myGamePiece.speedX = 1; }
-    if (dir == "1") { myGamePiece.speedY = -1.8; myGamePiece.speedX = -2.1;
+    if (dir == "1") { myGamePiece.speedY = -0.62; myGamePiece.speedX = -0.8;
       setTimeout(function(){ myGamePiece.speedX = 0; myGamePiece.speedY = 0; }, 1000);
 }
-    if (dir == "2") {myGamePiece.speedY = -1.6; myGamePiece.speedX = -1.7;
+    if (dir == "2") {myGamePiece.speedY = -0.6; myGamePiece.speedX = -0.63;
       setTimeout(function(){ myGamePiece.speedX = 0; myGamePiece.speedY = 0; }, 1000);
 }
 
-    if (dir == "3") {myGamePiece.speedY = -1.5; myGamePiece.speedX = 2.6;
+    if (dir == "3") {myGamePiece.speedY = -0.7; myGamePiece.speedX = 1.3;
       setTimeout(function(){ myGamePiece.speedX = 0; myGamePiece.speedY = 0; }, 1000);
 }
 
