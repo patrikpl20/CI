@@ -50,7 +50,7 @@
         <title>Quiz</title>        
     </head>
     
-    <body class="gabody" onload="startGame()">
+    <body class="gabody" onload="startGameFull()">
         
         <header>
             <nav>
@@ -121,7 +121,7 @@
 <!-- ##########################################################--> 
         <div class="filler"><div class="row gamecon">
             <div class="board b1" id="boardb1"></div>
-            <img class="board b2" src="pics/Bild_2.png">  
+            <div class="board b2" id="boardb2"></div>  
             <div class="content">
                 <div class="upper-cont">
                     <div class="col span-1-of-3">
@@ -163,6 +163,12 @@
         var xmlDoc;
         questweight = 0;
         seconds = 0;
+        
+        
+        function startGameFull() {
+            startGame();
+            startGame1();
+        }
         
 
         
@@ -284,23 +290,35 @@
             if(answerUser == trueanswer){
                 result = "Your answer is right!";
                 if(questcount % 2 == 0){
-                    pointsP1 = pointsP1 + questweight;
-                    rightP1++;
                     
                     //neuer zug der figur
                     if(questweight == 1){
-                        zug(questweight+1,0,0);
+                        zug(pointsP1+1,0,0);
                     } else if (questweight == 2){
-                        zug(questweight+1,questweight+2,0);
+                        zug(pointsP1+1,pointsP1+2,0);
                     }else if (questweight ==3 ){
-                        zug(questweight+1,questweight+2,questweight+3);
+                        zug(pointsP1+1,pointsP1+2,pointsP1+3);
                     }
+                    
+                    
+                    pointsP1 = pointsP1 + questweight;
+                    rightP1++;
                     
                     nextplayer = player2;
                     currplayer = player1;
                     
                 }
                 else{
+                    
+                    //neuer zug der figur
+                    if(questweight == 1){
+                        zug1(pointsP2+1,0,0);
+                    } else if (questweight == 2){
+                        zug1(pointsP2+1,pointsP2+2,0);
+                    }else if (questweight ==3 ){
+                        zug1(pointsP2+1,pointsP2+2,pointsP2+3);
+                    }
+                    
                     pointsP2 = pointsP2 + questweight;
                     rightP2++;
                     
@@ -551,6 +569,155 @@
                 if(zug3 != "0"){
                   setTimeout(function(){
                     move(zug3)
+                },1000); }
+            //  zug(zug3,'0','0')
+            },1000);
+            //  if(zug3 != "0"){
+            //    setTimeout(function(){move(zug3)},2000);
+              }
+        }
+        
+        
+        //###########################################################################################################
+        
+        var myGamePiece1;
+        var myBackground1;
+
+        function startGame1() {
+            myGamePiece1 = new component1(20, 28, "pics/GamePiece.png", 120, 430, "image");
+            myBackground1 = new component1(232.67, 460, "pics/Bild_2.png", 0, 0, "image");
+            myGameArea1.start();
+        }
+
+        var myGameArea1 = {
+            canvas : document.createElement("canvas1"),
+            start : function() {
+                this.canvas.width = 232.67;
+                this.canvas.height = 460;
+                this.context1 = this.canvas.getContext("2d");
+                //document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+                div = document.getElementById("boardb2");
+                div.appendChild(this.canvas)
+                
+                this.frameNo = 0;
+                this.interval = setInterval(updateGameArea1, 20);
+                },
+            clear : function() {
+                this.context1.clearRect(0, 0, this.canvas.width, this.canvas.height);
+            },
+            stop : function() {
+                clearInterval(this.interval);
+            }
+        }
+
+        function component1(width, height, color, x, y, type) {
+            this.type = type;
+            if (type == "image") {
+                this.image = new Image();
+                this.image.src = color;
+            }
+            this.width = width;
+            this.height = height;
+            this.speedX = 0;
+            this.speedY = 0;
+            this.x = x;
+            this.y = y;
+            this.update = function() {
+                ctx = myGameArea1.context1;
+                if (type == "image") {
+                    ctx.drawImage(this.image,
+                        this.x,
+                        this.y,
+                        this.width, this.height);
+                } else {
+                    ctx.fillStyle = color;
+                    ctx.fillRect(this.x, this.y, this.width, this.height);
+                }
+            }
+            this.newPos = function() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+            }
+        }
+
+        function updateGameArea1() {
+            myGameArea1.clear();
+            myBackground.newPos();
+            myBackground.update();
+            myGamePiece.newPos();
+            myGamePiece.update();
+        }
+
+        function move1(dir) {
+            myGamePiece.image.src = "pics/GamePiece.png";
+            if (dir == "up") {myGamePiece.speedY = -1; }
+            if (dir == "down") {myGamePiece.speedY = 1; }
+            if (dir == "left") {myGamePiece.speedX = -1; }
+            if (dir == "right") {myGamePiece.speedX = 1; }
+            if (dir == "1") { myGamePiece.speedY = -0.62; myGamePiece.speedX = -0.8;
+              setTimeout(function(){ myGamePiece.speedX = 0; myGamePiece.speedY = 0; }, 1000);
+        }
+            if (dir == "2") {myGamePiece.speedY = -0.6; myGamePiece.speedX = -0.63;
+              setTimeout(function(){ myGamePiece.speedX = 0; myGamePiece.speedY = 0; }, 1000);
+        }
+
+            if (dir == "3") {myGamePiece.speedY = -0.6; myGamePiece.speedX = 1.0;
+              setTimeout(function(){ myGamePiece.speedX = 0; myGamePiece.speedY = 0; }, 1000);
+        }
+
+            if (dir == "4") {myGamePiece.speedY = -0.16; myGamePiece.speedX = 1.16;
+              setTimeout(function(){ myGamePiece.speedX = 0; myGamePiece.speedY = 0; }, 1000);
+        }
+
+            if (dir == "5") {myGamePiece.speedY = -0.27; myGamePiece.speedX = 0.78;
+              setTimeout(function(){ myGamePiece.speedX = 0; myGamePiece.speedY = 0; }, 1000);
+        }
+            if (dir == "6") {myGamePiece.speedY = -1.05; myGamePiece.speedX = 0.53;
+              setTimeout(function(){ myGamePiece.speedY = -0.4; myGamePiece.speedX = -2; setTimeout(function(){ myGamePiece.speedX = 0; myGamePiece.speedY = 0; }, 500); }, 500);
+        }
+            if (dir == "7") {myGamePiece.speedY = 0.10; myGamePiece.speedX = -1.35;
+              setTimeout(function(){ myGamePiece.speedX = 0; myGamePiece.speedY = 0; }, 1000);
+        }
+            if (dir == "8") {myGamePiece.speedY = -0.25; myGamePiece.speedX = -0.88;
+              setTimeout(function(){ myGamePiece.speedX = 0; myGamePiece.speedY = 0; }, 1000);
+        }
+            if (dir == "9") {myGamePiece.speedY = -0.97; myGamePiece.speedX = 0.15;
+              setTimeout(function(){ myGamePiece.speedX = 0; myGamePiece.speedY = 0; }, 1000);
+        }
+            if (dir == "10") {myGamePiece.speedY = -0.3; myGamePiece.speedX = 1.2;
+              setTimeout(function(){ myGamePiece.speedX = 0; myGamePiece.speedY = 0; }, 1000);
+        }
+            if (dir == "11") {myGamePiece.speedY = -0.13; myGamePiece.speedX = 1.05;
+              setTimeout(function(){ myGamePiece.speedX = 0; myGamePiece.speedY = 0; }, 1000);
+        }
+            if (dir == "12") {myGamePiece.speedY = -0.75; myGamePiece.speedX = 1.5;
+              setTimeout(function(){ myGamePiece.speedY = -0.55; myGamePiece.speedX = -1; setTimeout(function(){ myGamePiece.speedX = 0; myGamePiece.speedY = 0; }, 500); }, 500);
+        }
+            if (dir == "13") {myGamePiece.speedY = -0.4; myGamePiece.speedX = -0.6;
+              setTimeout(function(){ myGamePiece.speedX = 0; myGamePiece.speedY = 0; }, 1000);
+        }
+            if (dir == "14") {myGamePiece.speedY = -0.3; myGamePiece.speedX = -0.7;
+              setTimeout(function(){ myGamePiece.speedX = 0; myGamePiece.speedY = 0; }, 1000);
+        }
+            if (dir == "15") {myGamePiece.speedY = -0.6; myGamePiece.speedX = -0.18;
+              setTimeout(function(){ myGamePiece.speedX = 0; myGamePiece.speedY = 0; }, 1000);
+        }
+        }
+
+        function zug1(zug1, zug2, zug3){ //(gespunkte +1 , gespunkte +2, gespunkte +3)
+            
+            this.zug1=zug1;
+            this.zug2=zug2;
+            this.zug3=zug3;
+
+            move1(zug1);
+
+            if(zug2 != "0"){
+              setTimeout(function(){
+                move1(zug2);
+                if(zug3 != "0"){
+                  setTimeout(function(){
+                    move1(zug3)
                 },1000); }
             //  zug(zug3,'0','0')
             },1000);
