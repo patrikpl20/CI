@@ -120,7 +120,7 @@
         </div>
 <!-- ##########################################################--> 
         <div class="filler"><div class="row gamecon">
-            <img class="board b1" id="boardb1" src="pics/Bild_1.png">   
+            <div class="board b1" id="boardb1"></div>
             <img class="board b2" src="pics/Bild_2.png">  
             <div class="content">
                 <div class="upper-cont">
@@ -143,9 +143,9 @@
                 </div>
             </div>
         </div>
+        </div>    
         <script type="text/javascript" src="js/particles.js"></script>
         <script type="text/javascript" src="js/app.js"></script>
-        
        
     </body>
     
@@ -428,8 +428,10 @@
                 this.canvas.width = 232.67;
                 this.canvas.height = 460;
                 this.context = this.canvas.getContext("2d");
-                document.body.insertBefore(this.canvas, document.body.childNodes[0]);
-                //document.getElementById('boardb1').innerHTML = (this.canvas);
+                //document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+                div = document.getElementById("boardb1");
+                div.appendChild(this.canvas)
+                
                 this.frameNo = 0;
                 this.interval = setInterval(updateGameArea, 20);
                 },
