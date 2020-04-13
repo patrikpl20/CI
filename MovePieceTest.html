@@ -9,8 +9,8 @@ canvas {
 }
 </style>
 </head>
-<body onload="startGame()">
-    <canvas id="myCanvas" width="200" height="100" style="border:1px solid #c3c3c3;">Test</canvas>
+    <body onload="startGame()">
+    </body>
 <script>
 
 var myGamePiece;
@@ -24,7 +24,7 @@ function startGame() {
 
 var myGameArea = {
     
-    canvas : document.getElementById("myCanvas");
+    canvas : document.createElement("canvas"),
     start : function() {
         this.canvas.width = 232.67;
         this.canvas.height = 460;

@@ -150,7 +150,7 @@
     </body>
     
     <script>
-        var qnr, quest, isused, x, z, usedquestionlist, questweight, answerattr1, answerattr2, answerattr3, answerattr4, rightP1, rightP2;
+        var qnr, quest, isused, x, z, usedquestionlist, questweight, answerattr1, answerattr2, answerattr3, answerattr4, rightP1, rightP2, avatarp1, avatarp2;
         var pointsP1, pointsP2, result, starter, startTime, endTime, seconds, winner, totaltimeP1, totaltimeP2, nextplayer, currplayer, averageTimeP1, averageTimeP2;
         usedquestionlist=[];
         totaltimeP1=[];
@@ -185,12 +185,21 @@
         }
         var player2 = localStorage.getItem("second");
         
+        if(localStorage.getItem("first") == localStorage.getItem("namep1")){
+            avatarp1 = localStorage.getItem("avatarp1");
+            avatarp2 = localStorage.getItem("avatarp2");
+        }else{
+            avatarp2 = localStorage.getItem("avatarp1");
+            avatarp1 = localStorage.getItem("avatarp2");
+        }
+        
         
         document.getElementById("headplayer1").innerHTML = player1;
         document.getElementById("headplayer2").innerHTML = player2;
         document.getElementById("headplayer1").style.color = "red";
 
         
+
         
         var xhttp;
         xhttp = new XMLHttpRequest();
@@ -296,7 +305,7 @@
                         zug(pointsP1+1,0,0);
                     } else if (questweight == 2){
                         zug(pointsP1+1,pointsP1+2,0);
-                    }else if (questweight ==3 ){
+                    }else if (questweight == 3 ){
                         zug(pointsP1+1,pointsP1+2,pointsP1+3);
                     }
                     
@@ -312,11 +321,11 @@
                     
                     //neuer zug der figur
                     if(questweight == 1){
-                        zug1(pointsP2+1,0,0);
+                        zugP2(pointsP2+1,0,0);
                     } else if (questweight == 2){
-                        zug1(pointsP2+1,pointsP2+2,0);
-                    }else if (questweight ==3 ){
-                        zug1(pointsP2+1,pointsP2+2,pointsP2+3);
+                        zugP2(pointsP2+1,pointsP2+2,0);
+                    }else if (questweight == 3 ){
+                        zugP2(pointsP2+1,pointsP2+2,pointsP2+3);
                     }
                     
                     pointsP2 = pointsP2 + questweight;
@@ -326,11 +335,18 @@
                     currplayer = player2;
                 }
             }else{
+                if(questcount % 2 == 0){
+                    nextplayer = player2;
+                    currplayer = player1;
+                }else{
+                    nextplayer = player1;
+                    currplayer = player2;
+                }
                 result = "Your answer is wrong!";
             }
             
-            if(pointsP1 > 2 || pointsP2 > 2){
-                if(pointsP1 > 5){
+            if(pointsP1 > 14 || pointsP2 > 14){
+                if(pointsP1 > 14){
                     winner = player1;
                 }else{
                     winner = player2;
@@ -435,7 +451,7 @@
         var myBackground;
 
         function startGame() {
-            myGamePiece = new component(20, 28, "pics/GamePiece.png", 120, 430, "image");
+            myGamePiece = new component(30, 32, "pics/char/"+avatarp1, 120, 430, "image");
             myBackground = new component(232.67, 460, "pics/Bild_1.png", 0, 0, "image");
             myGameArea.start();
         }
@@ -500,7 +516,7 @@
         }
 
         function move(dir) {
-            myGamePiece.image.src = "pics/GamePiece.png";
+            myGamePiece.image.src = "pics/char/" + avatarp1;
             if (dir == "up") {myGamePiece.speedY = -1; }
             if (dir == "down") {myGamePiece.speedY = 1; }
             if (dir == "left") {myGamePiece.speedX = -1; }
@@ -584,29 +600,29 @@
         var myBackground1;
 
         function startGame1() {
-            myGamePiece1 = new component1(20, 28, "pics/GamePiece.png", 120, 430, "image");
+            myGamePiece1 = new component1(30, 32, "pics/char/"+avatarp2, 120, 430, "image");
             myBackground1 = new component1(232.67, 460, "pics/Bild_2.png", 0, 0, "image");
-            myGameArea1.start();
+            myGameArea1.start1();
         }
 
         var myGameArea1 = {
-            canvas : document.createElement("canvas1"),
-            start : function() {
+            canvas : document.createElement("canvas"),
+            start1 : function() {
                 this.canvas.width = 232.67;
                 this.canvas.height = 460;
                 this.context1 = this.canvas.getContext("2d");
                 //document.body.insertBefore(this.canvas, document.body.childNodes[0]);
-                div = document.getElementById("boardb2");
-                div.appendChild(this.canvas)
+                div1 = document.getElementById("boardb2");
+                div1.appendChild(this.canvas)
                 
-                this.frameNo = 0;
-                this.interval = setInterval(updateGameArea1, 20);
+                this.frameNo1 = 0;
+                this.interval1 = setInterval(updateGameArea1, 20);
                 },
             clear : function() {
                 this.context1.clearRect(0, 0, this.canvas.width, this.canvas.height);
             },
             stop : function() {
-                clearInterval(this.interval);
+                clearInterval(this.interval1);
             }
         }
 
@@ -623,15 +639,15 @@
             this.x = x;
             this.y = y;
             this.update = function() {
-                ctx = myGameArea1.context1;
+                ctx1 = myGameArea1.context1;
                 if (type == "image") {
-                    ctx.drawImage(this.image,
+                    ctx1.drawImage(this.image,
                         this.x,
                         this.y,
                         this.width, this.height);
                 } else {
-                    ctx.fillStyle = color;
-                    ctx.fillRect(this.x, this.y, this.width, this.height);
+                    ctx1.fillStyle = color;
+                    ctx1.fillRect(this.x, this.y, this.width, this.height);
                 }
             }
             this.newPos = function() {
@@ -642,69 +658,69 @@
 
         function updateGameArea1() {
             myGameArea1.clear();
-            myBackground.newPos();
-            myBackground.update();
-            myGamePiece.newPos();
-            myGamePiece.update();
+            myBackground1.newPos();
+            myBackground1.update();
+            myGamePiece1.newPos();
+            myGamePiece1.update();
         }
 
         function move1(dir) {
-            myGamePiece.image.src = "pics/GamePiece.png";
-            if (dir == "up") {myGamePiece.speedY = -1; }
-            if (dir == "down") {myGamePiece.speedY = 1; }
-            if (dir == "left") {myGamePiece.speedX = -1; }
-            if (dir == "right") {myGamePiece.speedX = 1; }
-            if (dir == "1") { myGamePiece.speedY = -0.62; myGamePiece.speedX = -0.8;
-              setTimeout(function(){ myGamePiece.speedX = 0; myGamePiece.speedY = 0; }, 1000);
+            myGamePiece1.image.src = "pics/char/" + avatarp2;
+            if (dir == "up") {myGamePiece1.speedY = -1; }
+            if (dir == "down") {myGamePiece1.speedY = 1; }
+            if (dir == "left") {myGamePiece1.speedX = -1; }
+            if (dir == "right") {myGamePiece1.speedX = 1; }
+            if (dir == "1") { myGamePiece1.speedY = -0.62; myGamePiece1.speedX = -0.8;
+              setTimeout(function(){ myGamePiece1.speedX = 0; myGamePiece1.speedY = 0; }, 1000);
         }
-            if (dir == "2") {myGamePiece.speedY = -0.6; myGamePiece.speedX = -0.63;
-              setTimeout(function(){ myGamePiece.speedX = 0; myGamePiece.speedY = 0; }, 1000);
-        }
-
-            if (dir == "3") {myGamePiece.speedY = -0.6; myGamePiece.speedX = 1.0;
-              setTimeout(function(){ myGamePiece.speedX = 0; myGamePiece.speedY = 0; }, 1000);
+            if (dir == "2") {myGamePiece1.speedY = -0.6; myGamePiece1.speedX = -0.63;
+              setTimeout(function(){ myGamePiece1.speedX = 0; myGamePiece1.speedY = 0; }, 1000);
         }
 
-            if (dir == "4") {myGamePiece.speedY = -0.16; myGamePiece.speedX = 1.16;
-              setTimeout(function(){ myGamePiece.speedX = 0; myGamePiece.speedY = 0; }, 1000);
+            if (dir == "3") {myGamePiece1.speedY = -0.6; myGamePiece1.speedX = 1.0;
+              setTimeout(function(){ myGamePiece1.speedX = 0; myGamePiece1.speedY = 0; }, 1000);
         }
 
-            if (dir == "5") {myGamePiece.speedY = -0.27; myGamePiece.speedX = 0.78;
-              setTimeout(function(){ myGamePiece.speedX = 0; myGamePiece.speedY = 0; }, 1000);
+            if (dir == "4") {myGamePiece1.speedY = -0.16; myGamePiece1.speedX = 1.16;
+              setTimeout(function(){ myGamePiece1.speedX = 0; myGamePiece1.speedY = 0; }, 1000);
         }
-            if (dir == "6") {myGamePiece.speedY = -1.05; myGamePiece.speedX = 0.53;
-              setTimeout(function(){ myGamePiece.speedY = -0.4; myGamePiece.speedX = -2; setTimeout(function(){ myGamePiece.speedX = 0; myGamePiece.speedY = 0; }, 500); }, 500);
+
+            if (dir == "5") {myGamePiece1.speedY = -0.27; myGamePiece1.speedX = 0.78;
+              setTimeout(function(){ myGamePiece1.speedX = 0; myGamePiece1.speedY = 0; }, 1000);
         }
-            if (dir == "7") {myGamePiece.speedY = 0.10; myGamePiece.speedX = -1.35;
-              setTimeout(function(){ myGamePiece.speedX = 0; myGamePiece.speedY = 0; }, 1000);
+            if (dir == "6") {myGamePiece1.speedY = -1.05; myGamePiece1.speedX = 0.53;
+              setTimeout(function(){ myGamePiece1.speedY = -0.4; myGamePiece1.speedX = -2; setTimeout(function(){ myGamePiece1.speedX = 0; myGamePiece1.speedY = 0; }, 500); }, 500);
         }
-            if (dir == "8") {myGamePiece.speedY = -0.25; myGamePiece.speedX = -0.88;
-              setTimeout(function(){ myGamePiece.speedX = 0; myGamePiece.speedY = 0; }, 1000);
+            if (dir == "7") {myGamePiece1.speedY = 0.10; myGamePiece1.speedX = -1.35;
+              setTimeout(function(){ myGamePiece1.speedX = 0; myGamePiece1.speedY = 0; }, 1000);
         }
-            if (dir == "9") {myGamePiece.speedY = -0.97; myGamePiece.speedX = 0.15;
-              setTimeout(function(){ myGamePiece.speedX = 0; myGamePiece.speedY = 0; }, 1000);
+            if (dir == "8") {myGamePiece1.speedY = -0.25; myGamePiece1.speedX = -0.88;
+              setTimeout(function(){ myGamePiece1.speedX = 0; myGamePiece1.speedY = 0; }, 1000);
         }
-            if (dir == "10") {myGamePiece.speedY = -0.3; myGamePiece.speedX = 1.2;
-              setTimeout(function(){ myGamePiece.speedX = 0; myGamePiece.speedY = 0; }, 1000);
+            if (dir == "9") {myGamePiece1.speedY = -0.97; myGamePiece1.speedX = 0.15;
+              setTimeout(function(){ myGamePiece1.speedX = 0; myGamePiece1.speedY = 0; }, 1000);
         }
-            if (dir == "11") {myGamePiece.speedY = -0.13; myGamePiece.speedX = 1.05;
-              setTimeout(function(){ myGamePiece.speedX = 0; myGamePiece.speedY = 0; }, 1000);
+            if (dir == "10") {myGamePiece1.speedY = -0.3; myGamePiece1.speedX = 1.2;
+              setTimeout(function(){ myGamePiece1.speedX = 0; myGamePiece1.speedY = 0; }, 1000);
         }
-            if (dir == "12") {myGamePiece.speedY = -0.75; myGamePiece.speedX = 1.5;
-              setTimeout(function(){ myGamePiece.speedY = -0.55; myGamePiece.speedX = -1; setTimeout(function(){ myGamePiece.speedX = 0; myGamePiece.speedY = 0; }, 500); }, 500);
+            if (dir == "11") {myGamePiece1.speedY = -0.13; myGamePiece1.speedX = 1.05;
+              setTimeout(function(){ myGamePiece1.speedX = 0; myGamePiece1.speedY = 0; }, 1000);
         }
-            if (dir == "13") {myGamePiece.speedY = -0.4; myGamePiece.speedX = -0.6;
-              setTimeout(function(){ myGamePiece.speedX = 0; myGamePiece.speedY = 0; }, 1000);
+            if (dir == "12") {myGamePiece1.speedY = -0.75; myGamePiece1.speedX = 1.5;
+              setTimeout(function(){ myGamePiece1.speedY = -0.55; myGamePiece1.speedX = -1; setTimeout(function(){ myGamePiece1.speedX = 0; myGamePiece1.speedY = 0; }, 500); }, 500);
         }
-            if (dir == "14") {myGamePiece.speedY = -0.3; myGamePiece.speedX = -0.7;
-              setTimeout(function(){ myGamePiece.speedX = 0; myGamePiece.speedY = 0; }, 1000);
+            if (dir == "13") {myGamePiece1.speedY = -0.4; myGamePiece1.speedX = -0.6;
+              setTimeout(function(){ myGamePiece1.speedX = 0; myGamePiece1.speedY = 0; }, 1000);
         }
-            if (dir == "15") {myGamePiece.speedY = -0.6; myGamePiece.speedX = -0.18;
-              setTimeout(function(){ myGamePiece.speedX = 0; myGamePiece.speedY = 0; }, 1000);
+            if (dir == "14") {myGamePiece1.speedY = -0.3; myGamePiece1.speedX = -0.7;
+              setTimeout(function(){ myGamePiece1.speedX = 0; myGamePiece1.speedY = 0; }, 1000);
+        }
+            if (dir == "15") {myGamePiece1.speedY = -0.6; myGamePiece1.speedX = -0.18;
+              setTimeout(function(){ myGamePiece1.speedX = 0; myGamePiece1.speedY = 0; }, 1000);
         }
         }
 
-        function zug1(zug1, zug2, zug3){ //(gespunkte +1 , gespunkte +2, gespunkte +3)
+        function zugP2(zug1, zug2, zug3){ //(gespunkte +1 , gespunkte +2, gespunkte +3)
             
             this.zug1=zug1;
             this.zug2=zug2;
