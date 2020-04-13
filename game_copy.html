@@ -14,7 +14,7 @@
         background-color: rgb(0,0,0); /* Fallback color */
         background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
         }
-        
+
 
         .popupScoreboard {
             font-family: 'MedievalSharp', cursive;
@@ -41,17 +41,17 @@
           border-radius: 1px;
         }
     </style>
-    
+
     <head>
         <link rel="stylesheet" type="text/css" href="style.css">
         <link href="https://fonts.googleapis.com/css?family=Lato:100,300,300i,400&display=swap" rel="stylesheet" type='text/css'>
         <link href="https://fonts.googleapis.com/css?family=MedievalSharp&display=swap" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="grid.css">
-        <title>Quiz</title>        
+        <title>Quiz</title>
     </head>
-    
+
     <body class="gabody" onload="startGameFull()">
-        
+
         <header>
             <nav>
                 <div class="row">
@@ -69,21 +69,21 @@
             <table>
                 <tr>
                     <th>Correct answer:</th>
-                    <th id="points"></th>  
+                    <th id="points"></th>
                 </tr>
                 <tr>
                     <th>Required time:</th>
-                    <th id="seconds"></th>  
+                    <th id="seconds"></th>
                 </tr>
                 <tr>
                     <th>Next Player:</th>
-                    <th id="nextplayer"></th>  
+                    <th id="nextplayer"></th>
                 </tr>
             </table>
             <button class="nxt-btn" onclick="closepopup()">next player!</button>
           </div>
         </div>
-<!-- ##########################################################--> 
+<!-- ##########################################################-->
 <!-- ###################### scoreboard ######################-->
         <div id="popupScoreboard" class="popupScoreboard">
           <div class="popupscor-content">
@@ -111,17 +111,17 @@
                     <td><p id="rightp2"></p></td>
                 </tr>
             </table>
-            <p>What would you like to do?</p>  
+            <p>What would you like to do?</p>
             <div class="btn-choice">
-                <button class="logout-btn" onclick="location.href='login_new.html';">logout</button>               
-                <button class="restart-btn" onclick="location.href='avatar_raphi.html';">restart</button> 
+                <button class="logout-btn" onclick="location.href='login_new.html';">logout</button>
+                <button class="restart-btn" onclick="location.href='avatar_raphi.html';">restart</button>
             </div>
           </div>
         </div>
-<!-- ##########################################################--> 
+<!-- ##########################################################-->
         <div class="filler"><div class="row gamecon">
             <div class="board b1" id="boardb1"></div>
-            <div class="board b2" id="boardb2"></div>  
+            <div class="board b2" id="boardb2"></div>
             <div class="content">
                 <div class="upper-cont">
                     <div class="col span-1-of-3">
@@ -143,12 +143,12 @@
                 </div>
             </div>
         </div>
-        </div>    
+        </div>
         <script type="text/javascript" src="js/particles.js"></script>
         <script type="text/javascript" src="js/app.js"></script>
-       
+
     </body>
-    
+
     <script>
         var qnr, quest, isused, x, z, usedquestionlist, questweight, answerattr1, answerattr2, answerattr3, answerattr4, rightP1, rightP2, avatarp1, avatarp2;
         var pointsP1, pointsP2, result, starter, startTime, endTime, seconds, winner, totaltimeP1, totaltimeP2, nextplayer, currplayer, averageTimeP1, averageTimeP2;
@@ -163,19 +163,19 @@
         var xmlDoc;
         questweight = 0;
         seconds = 0;
-        
-        
+
+
         function startGameFull() {
             startGame();
             startGame1();
         }
-        
 
-        
+
+
         document.getElementById("currpointp1").innerHTML = pointsP1;
         document.getElementById("currpointp2").innerHTML = pointsP2;
-        
-        
+
+
         if(localStorage.getItem("first") != null && localStorage.getItem("second") != null){
             var player1 = localStorage.getItem("first");
             var player2 = localStorage.getItem("second");
@@ -184,7 +184,7 @@
             var player2 = "Player2";
         }
         var player2 = localStorage.getItem("second");
-        
+
         if(localStorage.getItem("first") == localStorage.getItem("namep1")){
             avatarp1 = localStorage.getItem("avatarp1");
             avatarp2 = localStorage.getItem("avatarp2");
@@ -192,15 +192,15 @@
             avatarp2 = localStorage.getItem("avatarp1");
             avatarp1 = localStorage.getItem("avatarp2");
         }
-        
-        
+
+
         document.getElementById("headplayer1").innerHTML = player1;
         document.getElementById("headplayer2").innerHTML = player2;
         document.getElementById("headplayer1").style.color = "red";
 
-        
 
-        
+
+
         var xhttp;
         xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
@@ -210,20 +210,20 @@
         };
         xhttp.open("GET", "quiz.xml", false);
         xhttp.send();
-        
 
-        
+
+
         function getRndInteger(min, max) {
             return Math.floor(Math.random() * (max - min + 1) ) + min;
         }
-        
+
         function myFunction(xml) {
-            xmlDoc = xml.responseXML;            
+            xmlDoc = xml.responseXML;
             x = xmlDoc.getElementsByTagName("question");
             qnr = getRndInteger(0, x.length);
-            
+
             var n = true;
-            
+
             while (n == true) {
                 n = usedquestionlist.includes(qnr);
                 if (n == true) {
@@ -232,17 +232,17 @@
                 else {n = false;
                       usedquestionlist.push(qnr);
                      }
-        
+
             }
-            
-            quest=""; 
+
+            quest="";
             quest = xmlDoc.getElementsByTagName("question")[qnr].childNodes[0].nodeValue;
             document.getElementById("q").innerHTML = quest;
             //Punkte der Frage auslesen
             questweight = xmlDoc.getElementsByTagName("question")[qnr].getAttribute('points');
             questweight = parseInt(questweight);
-            
-            /* 
+
+            /*
                 calculate nr of answers out of questionnr
                 qnr = jetzige Frage
                 qnr * 4 = Startwert
@@ -251,28 +251,28 @@
             var answer1 = xmlDoc.getElementsByTagName("answer")[qnr * 4 + 0].childNodes[0].nodeValue;
             document.getElementById("A1").innerHTML = answer1;
             answerattr1 = xmlDoc.getElementsByTagName("answer")[qnr * 4 + 0].getAttribute('correct');
-            
+
             var answer2 = xmlDoc.getElementsByTagName("answer")[qnr * 4 + 1].childNodes[0].nodeValue;
             document.getElementById("A2").innerHTML = answer2;
             answerattr2 = xmlDoc.getElementsByTagName("answer")[qnr * 4 + 1].getAttribute('correct');
-            
+
             var answer3 = xmlDoc.getElementsByTagName("answer")[qnr * 4 + 2].childNodes[0].nodeValue;
             document.getElementById("A3").innerHTML = answer3;
             answerattr3 = xmlDoc.getElementsByTagName("answer")[qnr * 4 + 2].getAttribute('correct');
-            
+
             var answer4 = xmlDoc.getElementsByTagName("answer")[qnr * 4 + 3].childNodes[0].nodeValue;
             document.getElementById("A4").innerHTML = answer4;
             answerattr4 = xmlDoc.getElementsByTagName("answer")[qnr * 4 + 3].getAttribute('correct');
-            
+
             starttimer();
-            
-            //alert("Points for question "+ qnr +": " + questweight +"   Correct Answer: " + answerattr1+answerattr2+answerattr3+answerattr4);    
+
+            //alert("Points for question "+ qnr +": " + questweight +"   Correct Answer: " + answerattr1+answerattr2+answerattr3+answerattr4);
         }
-        
-        
+
+
         function submitAnswer(answerUser){
             var trueanswer;
-            
+
             if(answerattr1 != null){
                 document.getElementById("A1").style.color = "green";
                 trueanswer = "A";
@@ -286,7 +286,7 @@
                 document.getElementById("A4").style.color = "green";
                 trueanswer = "D";
             }
-            
+
             if (answerattr1 == null){
                 document.getElementById("A1").style.color = "red";}
             if (answerattr2 == null) {
@@ -295,11 +295,11 @@
                 document.getElementById("A3").style.color = "red";}
             if (answerattr4 == null) {
                 document.getElementById("A4").style.color = "red";}
-            
+
             if(answerUser == trueanswer){
                 result = "Your answer is right!";
                 if(questcount % 2 == 0){
-                    
+
                     //neuer zug der figur
                     if(questweight == 1){
                         zug(pointsP1+1,0,0);
@@ -308,17 +308,17 @@
                     }else if (questweight == 3 ){
                         zug(pointsP1+1,pointsP1+2,pointsP1+3);
                     }
-                    
-                    
+
+
                     pointsP1 = pointsP1 + questweight;
                     rightP1++;
-                    
+
                     nextplayer = player2;
                     currplayer = player1;
-                    
+
                 }
                 else{
-                    
+
                     //neuer zug der figur
                     if(questweight == 1){
                         zugP2(pointsP2+1,0,0);
@@ -327,10 +327,10 @@
                     }else if (questweight == 3 ){
                         zugP2(pointsP2+1,pointsP2+2,pointsP2+3);
                     }
-                    
+
                     pointsP2 = pointsP2 + questweight;
                     rightP2++;
-                    
+
                     nextplayer = player1;
                     currplayer = player2;
                 }
@@ -344,14 +344,14 @@
                 }
                 result = "Your answer is wrong!";
             }
-            
+
             if(pointsP1 > 14 || pointsP2 > 14){
                 if(pointsP1 > 14){
                     winner = player1;
                 }else{
                     winner = player2;
                 }
-                
+
                 //durchschnittszeit berechnen
                 var p1, p2, help1, help2, help3, help4;
                 help1 = 0;
@@ -360,13 +360,13 @@
                     help1 = help1 + totaltimeP1[p1];
                 }
                 averageTimeP1 = help1 / totaltimeP1.length;
-                
+
                 for(p2 = 0; p2 < totaltimeP2.length; p2++){
                     help2 = help2 + totaltimeP2[p2];
                 }
                 averageTimeP2 = help2 / totaltimeP2.length;
-                
-                
+
+
                 popupScoreboard.style.display = "block";
                 document.getElementById("pointsP1ges").innerHTML = pointsP1;
                 document.getElementById("pointsP2ges").innerHTML = pointsP2;
@@ -378,14 +378,14 @@
                 document.getElementById("playername2").innerHTML = player2;
                 document.getElementById("fastestP1").innerHTML = help3 + " s";
                 document.getElementById("fastestP1").innerHTML = help4 + " s";
-                document.getElementById("winner").innerHTML = "The winner is " + winner;   
-                
+                document.getElementById("winner").innerHTML = "The winner is " + winner;
+
             }
-            
+
             questcount++;
-            
-            endtimer();        
-            
+
+            endtimer();
+
             window.setTimeout(function() {
                 popup.style.display = "block";
                 document.getElementById("result").innerHTML = result;
@@ -394,7 +394,7 @@
                 document.getElementById("nextplayer").innerHTML = nextplayer;
                 document.getElementById("currpointp1").innerHTML = pointsP1;
                 document.getElementById("currpointp2").innerHTML = pointsP2;
-                
+
                 if(nextplayer == player1){
                     document.getElementById("headplayer1").style.color = "red";
                     document.getElementById("headplayer2").style.color = "black";
@@ -403,12 +403,12 @@
                     document.getElementById("headplayer1").style.color = "black";
                 }
             }, 1000);
-            
+
         }
-        
-        
+
+
         function closepopup() {
-            popup.style.display = "none"; 
+            popup.style.display = "none";
                 xhttp.onreadystatechange = function() {
                 if (this.readyState == 4) {
                     myFunction(this);
@@ -416,37 +416,37 @@
             };
             xhttp.open("GET", "quiz.xml", false);
             xhttp.send();
-            
-        
+
+
             document.getElementById("A1").style.color = "black";
             document.getElementById("A2").style.color = "black";
             document.getElementById("A3").style.color = "black";
-            document.getElementById("A4").style.color = "black";   
+            document.getElementById("A4").style.color = "black";
         }
-        
+
 
         function starttimer() {
           startTime = new Date();
         };
-        
+
         function endtimer() {
             endTime = new Date();
             var timeDiff = endTime - startTime; //in ms
-            timeDiff /= 1000; 
+            timeDiff /= 1000;
             seconds = Math.round(timeDiff);
             seconds = parseInt(seconds);
-            
+
             if(questcount % 2 == 0){
-                    totaltimeP1.push(seconds);       
+                    totaltimeP1.push(seconds);
                 }
                 else{
-                    totaltimeP2.push(seconds); 
+                    totaltimeP2.push(seconds);
                 }
         }
-        
-        
+
+
 //###########################################################################################################
-        
+
         var myGamePiece;
         var myBackground;
 
@@ -465,7 +465,7 @@
                 //document.body.insertBefore(this.canvas, document.body.childNodes[0]);
                 div = document.getElementById("boardb1");
                 div.appendChild(this.canvas)
-                
+
                 this.frameNo = 0;
                 this.interval = setInterval(updateGameArea, 20);
                 },
@@ -572,7 +572,7 @@
         }
 
         function zug(zug1, zug2, zug3){ //(gespunkte +1 , gespunkte +2, gespunkte +3)
-            
+
             this.zug1=zug1;
             this.zug2=zug2;
             this.zug3=zug3;
@@ -585,17 +585,17 @@
                 if(zug3 != "0"){
                   setTimeout(function(){
                     move(zug3)
-                },1000); }
+                },1500); }
             //  zug(zug3,'0','0')
-            },1000);
+            },1500);
             //  if(zug3 != "0"){
             //    setTimeout(function(){move(zug3)},2000);
               }
         }
-        
-        
+
+
         //###########################################################################################################
-        
+
         var myGamePiece1;
         var myBackground1;
 
@@ -614,7 +614,7 @@
                 //document.body.insertBefore(this.canvas, document.body.childNodes[0]);
                 div1 = document.getElementById("boardb2");
                 div1.appendChild(this.canvas)
-                
+
                 this.frameNo1 = 0;
                 this.interval1 = setInterval(updateGameArea1, 20);
                 },
@@ -721,7 +721,7 @@
         }
 
         function zugP2(zug1, zug2, zug3){ //(gespunkte +1 , gespunkte +2, gespunkte +3)
-            
+
             this.zug1=zug1;
             this.zug2=zug2;
             this.zug3=zug3;
@@ -742,7 +742,5 @@
               }
         }
     </script>
-    
+
 </html>
-
-
