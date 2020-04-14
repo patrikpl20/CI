@@ -58,7 +58,7 @@
 			<answer>&lt;xmp&gt;&lt;a href=”url”open=”new”&gt;&lt;/xmp&gt;</answer>
 		</item>
 		<item>
-			<question points="1">Which of these elements are all &lt;xmp&gt;&lt;table&gt;&lt;/xmp&gt; elements?</question>
+			<question points="1">Which of these elements are all table elements?</question>
 			<answer>&lt;xmp&gt;&lt;table&gt;&lt;/xmp&gt;&lt;xmp&gt;&lt;head&gt;&lt;/xmp&gt;&lt;xmp&gt;&lt;tfoot&gt;&lt;/xmp&gt;</answer>
 			<answer>&lt;xmp&gt;&lt;table&gt;&lt;/xmp&gt;&lt;xmp&gt;&lt;tr&gt;&lt;/xmp&gt;&lt;xmp&gt;&lt;tt&gt;&lt;/xmp&gt;</answer>
 			<answer correct="y">&lt;xmp&gt;&lt;table&gt;&lt;/xmp&gt;&lt;xmp&gt;&lt;tr&gt;&lt;/xmp&gt;&lt;xmp&gt;&lt;td&gt;&lt;/xmp&gt;</answer>
@@ -93,7 +93,7 @@
 			<answer correct="y">alt</answer>
 		</item>
 		<item>
-			<question points="3">The HTML &lt;canvas&gt; element is used to:</question>
+			<question points="3">The HTML <xmp>&lt;canvas&gt;</xmp> element is used to:</question>
 			<answer correct="y">draw graphics</answer>
 			<answer>create draggable elements</answer>
 			<answer>manipulate data in MySQL</answer>
