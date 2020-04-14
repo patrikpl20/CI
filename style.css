@@ -126,6 +126,25 @@ input[type=submit]:active,
     font-size: 100%;
 }
 
+
+.btn-start {
+    display: inline-block;
+    padding: 10px 30px;
+    font-weight: 400;
+    border-radius: 200px;
+    background-color: #22A7F0;
+    border: 1px solid #22A7F0;
+    color: #fff;
+    transition: background-color 0.2s, border 0.2s, color 0.2s;
+}
+
+
+.btn-start:hover,
+.btn-start:active {
+    background-color: #0f97e1;
+    border: 1px solid #0f97e1;
+}
+
 /* Popup after Answer */
 
 
@@ -169,7 +188,6 @@ input[type=submit]:active,
 }
 
 .contact-form {
-    width: 100%;
     margin-top: 10%;
     margin-left: auto;
     margin-right: auto;
@@ -177,18 +195,23 @@ input[type=submit]:active,
 
 .loginf input[type=text],
 .loginf input[type=password]{
-    width: 100%;
-    padding: 4%;
+    width: 97%;
+    padding: 2% 0 2% 2%;
+    font-size: 110%;
     margin-bottom: 15px;
     border-radius: 3px;
     border: 1px solid #eaeaea;
 }
 
-
+/* ---------------------- */
+/* AVATAR */
+/* ---------------------- */
 
 
 .container {
     margin-top: 4%;
+    margin-left: auto;
+    margin-right: auto;
     background-color: #f1f2f6;
     border-radius: 1%;
     width: 60%;
@@ -243,6 +266,10 @@ input[type=submit]:active,
     border: 2px solid #f1f2f6;
 }
 
+[type=radio]:hover + img {
+    border: 2px solid #f9b9c9;
+}
+
 [type=radio]:checked + img{
     border: 2px solid #ed3d68;
 }
@@ -254,6 +281,52 @@ input[type=submit]:active,
 .avatar:last-of-type{
     margin-top: 1%;
 }
+
+/* Popup (background) */
+.avpopup {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 10000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+
+/* Popup Content/Box */
+.avpopup-content {
+    width: 50%;
+    text-align: center;
+    background-color: #fefefe;
+    padding: 2%;
+    position: absolute;
+    left: 50%;
+    margin-left: -27%;
+    margin-top: 15%; /* 15% from the top and centered */
+    border: 1px solid #888;
+     /* Could be more or less, depending on screen size */
+}
+
+
+.myimage {
+    width: 15%;
+    padding: 0;
+    margin-top: 3%;
+}
+
+
+.pname {
+    margin-top: 1%;
+    font-size: 120%;
+    font-weight: 600;
+}
+
+/* ---------------------- */
+/* THE GAME */
+/* ---------------------- */
 
 #particles-js {
 height: 100%;
@@ -343,12 +416,11 @@ background: linear-gradient(45deg, #22A7F0, #2ECC71);
     border: 0.5px solid #ed3d68;
 }
 
-.popup-content table {
-    margin: 0 auto;
-    padding-top: 10px;
+.popupScoreboard h2 {
+    font-family: 'MedievalSharp';
 }
 
-.popup-content table th:first-child {
+.popupscor-content table th:first-child {
     text-align: end;
     padding-right: 5px;
 }
@@ -364,11 +436,8 @@ background: linear-gradient(45deg, #22A7F0, #2ECC71);
 }
 
 .popupscor-content table {
-    margin: 15px auto;
+    margin: 30px auto;
     border-spacing: 5px
-}
-
-.popupscor-content table tr {
 }
 
 .popupscor-content table th:first-child{

@@ -2,33 +2,12 @@
 <html lang="en">
 
     <style>
-        /* Popup (background) */
-        .popup {
-          display: none; /* Hidden by default */
-          position: fixed; /* Stay in place */
-          z-index: 10000; /* Sit on top */
-          left: 0;
-          top: 0;
-          width: 100%; /* Full width */
-          height: 100%; /* Full height */
-          overflow: auto; /* Enable scroll if needed */
-          background-color: rgb(0,0,0); /* Fallback color */
-          background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-        }
-
-        /* Popup Content/Box */
-        .popup-content {
-          background-color: #fefefe;
-          margin: 15% auto; /* 15% from the top and centered */
-          padding: 20px;
-          border: 1px solid #888;
-          width: 50%; /* Could be more or less, depending on screen size */
-        }
+        
 
         /* The Close Button */
         .close {
           color: #aaa;
-          float: right;
+            text-align: end;
           font-size: 28px;
           font-weight: bold;
             margin-top: -12px;
@@ -67,13 +46,13 @@
         <div id="particles-js"></div>
     
 <!-- ###################### popup window ######################-->
-        <div id="popup" class="popup">
-          <div class="popup-content">
-            <span class="close">&times;</span>
-            <h1>Lets see who starts!</h1>
-            <div id="name"></div>
-            <img id="myimage" class="myimage">
-            <button onclick="location.href='game_copy.html';">start the game!</button>
+        <div id="popup" class="avpopup">
+          <div class="avpopup-content">
+            <div class="close">&times;</div>
+            <h1>Let's see who starts!</h1>
+            <img id="myimage" class="myimage"><div class="pname" id="name"></div><br>
+        
+            <button class="btn-start" onclick="location.href='game_copy.html';">start the game!</button>
           </div>
         </div>
 <!-- ##########################################################-->        
@@ -83,7 +62,7 @@
                 <div class="divide">
                     <div class="col span-1-of-2">
                         <h3>Player 1:</h3>
-                        <input type="text" name="name" id="nameP1" placeholder="" required>
+                        <input type="text" name="name" id="nameP1" placeholder="P1" required>
                         <div class="avatar">
                             <div class="col span-1-of-3"><label><input type="radio" id="av11" name="player1" value="char1.png"><img src="pics/char/char1.png"></label></div>
                             <div class="col span-1-of-3"><label><input type="radio" id="av12" name="player1" value="char2.png"><img src="pics/char/char2.png"></label></div>
@@ -97,7 +76,7 @@
                     </div>
                     <div class="col span-1-of-2">
                         <h3>Player 2:</h3>
-                        <input type="text" name="name" id="nameP2" placeholder="" required>
+                        <input type="text" name="name" id="nameP2" placeholder="P2" required>
                         <div class="avatar">
                             <div class="col span-1-of-3"><label><input type="radio" id="av21" name="player2" value="char1.png"><img src="pics/char/char1.png"></label></div>
                             <div class="col span-1-of-3"><label><input type="radio" id="av22" name="player2" value="char2.png"><img src="pics/char/char2.png"></label></div>
