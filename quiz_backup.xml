@@ -17,31 +17,31 @@
 		</item>
 		<item>
 			<question points="2">What is the correct HTML element for inserting a line break?</question>
-			<answer>&lt;p&gt;</answer>
+			<answer>&lt;xmp&gt;&lt;p&gt;&lt;/xmp&gt;</answer>
 			<answer>break</answer>
-			<answer>&lt;Ib&gt;</answer>
-			<answer correct="y">&lt;br&gt;</answer>
+			<answer>&lt;xmp&gt;&lt;Ib&gt;&lt;/xmp&gt;</answer>
+			<answer correct="y">&lt;xmp&gt;&lt;br&gt;&lt;/xmp&gt;</answer>
 		</item>
 		<item>
 			<question points="3">What is the correct HTML for adding a background color?</question>
-			<answer correct="y">&lt;body style=”background-color:yellow;”&gt;</answer>
-			<answer>&lt;background&gt;yellow&lt;/background&gt;</answer>
-			<answer>&lt;body bg=”yellow”&gt;</answer>
-			<answer>&lt;body style=”color-background:yellow;”&gt;</answer>
+			<answer correct="y">&lt;xmp&gt;&lt;body style=”background-color:yellow;”&gt;&lt;/xmp&gt;</answer>
+			<answer>&lt;xmp&gt;&lt;background&gt;yellow&lt;/background&gt;&lt;/xmp&gt;</answer>
+			<answer>&lt;xmp&gt;&lt;body bg=”yellow”&gt;&lt;/xmp&gt;</answer>
+			<answer>&lt;xmp&gt;&lt;body style=”color-background:yellow;”&gt;&lt;/xmp&gt;</answer>
 		</item>
 		<item>
 			<question points="3">What is the correct HTML element to define important text?</question>
-			<answer correct="y">&lt;strong&gt;</answer>
-			<answer>&lt;b&gt;</answer>
-			<answer>&lt;i&gt;</answer>
-			<answer>&lt;important&gt;</answer>
+			<answer correct="y">&lt;xmp&gt;&lt;strong&gt;&lt;/xmp&gt;</answer>
+			<answer>&lt;xmp&gt;&lt;b&gt;&lt;/xmp&gt;</answer>
+			<answer>&lt;xmp&gt;&lt;i&gt;&lt;/xmp&gt;</answer>
+			<answer>&lt;xmp&gt;&lt;important&gt;&lt;/xmp&gt;</answer>
 		</item>
 		<item>
 			<question points="2">What is the correct HTML for creating a hyperlink?</question>
-			<answer>&lt;a name=”http://www.w3schools.com”&gt; W3Schools &lt;/a&gt;</answer>
-			<answer>&lt;a url=”http://www.w3schools.com”&gt; W3Schools &lt;/a&gt;</answer>
-			<answer>&lt;a&gt;http://www.w3schools.com”&lt;/a&gt;</answer>
-			<answer correct="y">&lt;a href=”http://www.w3schools.com”&gt; W3Schools &lt;/a&gt;</answer>
+			<answer>&lt;xmp&gt;&lt;a name=”http://www.w3schools.com”&gt; W3Schools &lt;/a&gt;&lt;/xmp&gt;</answer>
+			<answer>&lt;xmp&gt;&lt;a url=”http://www.w3schools.com”&gt; W3Schools &lt;/a&gt;&lt;/xmp&gt;</answer>
+			<answer>&lt;xmp&gt;&lt;a&gt;http://www.w3schools.com”&lt;/a&gt;&lt;/xmp&gt;</answer>
+			<answer correct="y">&lt;xmp&gt;&lt;a href=”http://www.w3schools.com”&gt; W3Schools &lt;/a&gt;&lt;/xmp&gt;</answer>
 		</item>
 		<item>
 			<question points="1">Which character is used to indicate an end tag?</question>
@@ -52,24 +52,24 @@
 		</item>
 		<item>
 			<question points="2">How can you open a link in a new tab/browser window?</question>
-			<answer>&lt;a href=”url” new&gt;</answer>
-			<answer>&lt;a href=”url” target=”new”&gt;</answer>
-			<answer correct="y">&lt;a href=”url” target=”_blank”&gt;</answer>
-			<answer>&lt;a href=”url”open=”new”&gt;</answer>
+			<answer>&lt;xmp&gt;&lt;a href=”url” new&gt;&lt;/xmp&gt;</answer>
+			<answer>&lt;xmp&gt;&lt;a href=”url” target=”new”&gt;&lt;/xmp&gt;</answer>
+			<answer correct="y">&lt;xmp&gt;&lt;a href=”url” target=”_blank”&gt;&lt;/xmp&gt;</answer>
+			<answer>&lt;xmp&gt;&lt;a href=”url”open=”new”&gt;&lt;/xmp&gt;</answer>
 		</item>
 		<item>
-			<question points="1">Which of these elements are all &lt;table&gt; elements?</question>
-			<answer>&lt;table&gt;&lt;head&gt;&lt;tfoot&gt;</answer>
-			<answer>&lt;table&gt;&lt;tr&gt;&lt;tt&gt;</answer>
-			<answer correct="y">&lt;table&gt;&lt;tr&gt;&lt;td&gt;</answer>
-			<answer>&lt;thead&gt;&lt;body&gt;&lt;tr&gt;</answer>
+			<question points="1">Which of these elements are all &lt;xmp&gt;&lt;table&gt;&lt;/xmp&gt; elements?</question>
+			<answer>&lt;xmp&gt;&lt;table&gt;&lt;/xmp&gt;&lt;xmp&gt;&lt;head&gt;&lt;/xmp&gt;&lt;xmp&gt;&lt;tfoot&gt;&lt;/xmp&gt;</answer>
+			<answer>&lt;xmp&gt;&lt;table&gt;&lt;/xmp&gt;&lt;xmp&gt;&lt;tr&gt;&lt;/xmp&gt;&lt;xmp&gt;&lt;tt&gt;&lt;/xmp&gt;</answer>
+			<answer correct="y">&lt;xmp&gt;&lt;table&gt;&lt;/xmp&gt;&lt;xmp&gt;&lt;tr&gt;&lt;/xmp&gt;&lt;xmp&gt;&lt;td&gt;&lt;/xmp&gt;</answer>
+			<answer>&lt;xmp&gt;&lt;thead&gt;&lt;/xmp&gt;&lt;xmp&gt;&lt;body&gt;&lt;/xmp&gt;&lt;xmp&gt;&lt;tr&gt;&lt;/xmp&gt;</answer>
 		</item>
 		<item>
 			<question points="2">What is the correct HTML for inserting an image?</question>
-			<answer correct="y">&lt;img src=“image.gif“ alt=“MyImage“&gt;</answer>
-			<answer>&lt;img href=”image.gif” alt=“MyImage“&gt;</answer>
-			<answer>&lt;image scr=“image.gid“ alt=”MyImage”&gt;</answer>
-			<answer>&lt;img alt=”MyImage”&gt; image.gif &lt;/img&gt;</answer>
+			<answer correct="y">&lt;xmp&gt;&lt;img src=“image.gif“ alt=“MyImage“&gt;&lt;/xmp&gt;</answer>
+			<answer>&lt;xmp&gt;&lt;img href=”image.gif” alt=“MyImage“&gt;&lt;/xmp&gt;</answer>
+			<answer>&lt;xmp&gt;&lt;image scr=“image.gid“ alt=”MyImage”&gt;&lt;/xmp&gt;</answer>
+			<answer>&lt;xmp&gt;&lt;img alt=”MyImage”&gt; image.gif &lt;/img&gt;&lt;/xmp&gt;</answer>
 		</item>
 		<item>
 			<question points="1">What does CSS stand for?</question>
@@ -80,9 +80,9 @@
 		</item>
 		<item>
 			<question points="1">Which HTML element defines the title of a document?</question>
-			<answer>&lt;head&gt;</answer>
-			<answer correct="y">&lt;title&gt;</answer>
-			<answer>&lt;meta&gt;</answer>
+			<answer>&lt;xmp&gt;&lt;head&gt;&lt;/xmp&gt;</answer>
+			<answer correct="y">&lt;xmp&gt;&lt;title&gt;&lt;/xmp&gt;</answer>
+			<answer>&lt;xmp&gt;&lt;meta&gt;&lt;/xmp&gt;</answer>
 			<answer>h1</answer>
 		</item>
 		<item>
@@ -108,24 +108,24 @@
 		</item>
 		<item>
 			<question points="1">What is the correct HTML element for the largest heading?</question>
-			<answer>&lt;head&gt;</answer>
+			<answer>&lt;xmp&gt;&lt;head&gt;&lt;/xmp&gt;</answer>
 			<answer>heading</answer>
-			<answer>&lt;h6&gt;</answer>
-			<answer correct="y">&lt;h1&gt;</answer>
+			<answer>&lt;xmp&gt;&lt;h6&gt;&lt;/xmp&gt;</answer>
+			<answer correct="y">&lt;xmp&gt;&lt;h1&gt;&lt;/xmp&gt;</answer>
 		</item>
 		<item>
 			<question points="2">What is the correct HTML for referring to an external style sheet?</question>
-			<answer correct="y">&lt;link rel="stylesheet" type="text/css" href="mystyle.css"&gt;</answer>
-			<answer>&lt;stylesheet&gt;mystyle.css&lt;/stylesheet&gt;</answer>
-			<answer>&lt;style src="mystyle.css"&gt;</answer>
-			<answer>&lt;ahref=”stylesheet” type=”text/css”&gt;</answer>
+			<answer correct="y">&lt;xmp&gt;&lt;link rel="stylesheet" type="text/css" href="mystyle.css"&gt;&lt;/xmp&gt;</answer>
+			<answer>&lt;xmp&gt;&lt;stylesheet&gt;mystyle.css&lt;/stylesheet&gt;&lt;/xmp&gt;</answer>
+			<answer>&lt;xmp&gt;&lt;style src="mystyle.css"&gt;&lt;/xmp&gt;</answer>
+			<answer>&lt;xmp&gt;&lt;ahref=”stylesheet” type=”text/css”&gt;&lt;/xmp&gt;</answer>
 		</item>
 		<item>
 			<question points="2">Which HTML tag is used to define an internal style sheet?</question>
-			<answer>&lt;css&gt;</answer>
-			<answer>&lt;script&gt;</answer>
-			<answer correct="y">&lt;style&gt;</answer>
-			<answer>&lt;internal&gt;</answer>
+			<answer>&lt;xmp&gt;&lt;css&gt;&lt;/xmp&gt;</answer>
+			<answer>&lt;xmp&gt;&lt;script&gt;&lt;/xmp&gt;</answer>
+			<answer correct="y">&lt;xmp&gt;&lt;style&gt;&lt;/xmp&gt;</answer>
+			<answer>&lt;xmp&gt;&lt;internal&gt;&lt;/xmp&gt;</answer>
 		</item>
 		<item>
 			<question points="3">Which is the correct CSS syntax?</question>
@@ -150,17 +150,17 @@
 		</item>
 		<item>
 			<question points="1">Inside which HTML element do we put the JavaScript?</question>
-			<answer>&lt;js&gt;</answer>
-			<answer correct="y">&lt;script&gt;</answer>
-			<answer>&lt;scripting&gt;</answer>
-			<answer>&lt;javascript&gt;</answer>
+			<answer>&lt;xmp&gt;&lt;js&gt;&lt;/xmp&gt;</answer>
+			<answer correct="y">&lt;xmp&gt;&lt;script&gt;&lt;/xmp&gt;</answer>
+			<answer>&lt;xmp&gt;&lt;scripting&gt;&lt;/xmp&gt;</answer>
+			<answer>&lt;xmp&gt;&lt;javascript&gt;&lt;/xmp&gt;</answer>
 		</item>
 		<item>
 			<question points="1">Where is the correct place to insert a JavaScript?</question>
-			<answer>The &lt;head&gt; section</answer>
-			<answer>The &lt;body&gt; section</answer>
+			<answer>The &lt;xmp&gt;&lt;head&gt;&lt;/xmp&gt;section</answer>
+			<answer>The&lt;xmp&gt;&lt;body&gt;&lt;/xmp&gt;section</answer>
 			<answer>None of the answers is correct.</answer>
-			<answer correct="y">Both the &lt;head&gt; section and the &lt;body&gt; section are correct</answer>
+			<answer correct="y">Both the &lt;xmp&gt;&lt;head&gt;&lt;/xmp&gt;section and the &lt;body&gt; section are correct</answer>
 		</item>
 		<item>
 			<question points="2">How do you create a function in JavaScript?</question>
@@ -175,6 +175,181 @@
 			<answer>onmouseclick</answer>
 			<answer correct="y">onclick</answer>
 			<answer>onchange</answer>
+		</item>
+		<item>
+			<question points="2">Who published HTML and when was it?</question>
+			<answer>2005, Apple</answer>
+			<answer correct="y">1992, CERN</answer>
+			<answer>1990, Mirosoft</answer>
+			<answer>1995, Java</answer>
+		</item>
+		<item>
+			<question points="1">Who is making the Web standards?</question>
+			<answer correct="y">The World Wide Web Consortium</answer>
+			<answer>Google</answer>
+			<answer>Mozilla</answer>
+			<answer>Microsoft</answer>
+		</item>
+		<item>
+			<question points="2">Choose the correct HTML element to define emphasized text</question>
+			<answer>&lt;xmp&gt;&lt;italic&gt;&lt;/xmp&gt;</answer>
+			<answer>&lt;xmp&gt;&lt;i&gt;&lt;/xmp&gt;</answer>
+			<answer correct="y">&lt;xmp&gt;&lt;em&gt;&lt;/xmp&gt;</answer>
+			<answer>&lt;xmp&gt;&lt;b&gt;&lt;/xmp&gt;</answer>
+		</item>
+		<item>
+			<question points="1">How can you make a numbered list?</question>
+			<answer correct="y">&lt;xmp&gt;&lt;ol&gt;&lt;/xmp&gt;</answer>
+			<answer>&lt;xmp&gt;&lt;ul&gt;&lt;/xmp&gt;</answer>
+			<answer>&lt;xmp&gt;&lt;dl&gt;&lt;/xmp&gt;</answer>
+			<answer>&lt;xmp&gt;&lt;list&gt;&lt;/xmp&gt;</answer>
+		</item>
+		<item>
+			<question points="2">How can you make a bulleted list</question>
+			<answer>&lt;xmp&gt;&lt;dl&gt;&lt;/xmp&gt;</answer>
+			<answer correct="y">&lt;xmp&gt;&lt;ul&gt;&lt;/xmp&gt;</answer>
+			<answer>&lt;xmp&gt;&lt;list&gt;&lt;/xmp&gt;</answer>
+			<answer>&lt;xmp&gt;&lt;ol&gt;&lt;/xmp&gt;</answer>
+		</item>
+		<item>
+			<question points="2">What is the correct HTML for making a checkbox?</question>
+			<answer>&lt;xmp&gt;&lt;check&gt;&lt;/xmp&gt;</answer>
+			<answer>&lt;xmp&gt;&lt;checkbox&gt;&lt;/xmp&gt;</answer>
+			<answer>&lt;xmp&gt;&lt;input type="check"&gt;&lt;/xmp&gt;</answer>
+			<answer correct="y">&lt;xmp&gt;&lt;input type="checkbox"&gt;&lt;/xmp&gt;</answer>
+		</item>
+		<item>
+			<question points="3">What is the correct HTML for making a text input field?</question>
+			<answer correct="y">&lt;xmp&gt;&lt;input type="text"&gt;&lt;/xmp&gt;</answer>
+			<answer>&lt;xmp&gt;&lt;textinput type="text"&gt;&lt;/xmp&gt;</answer>
+			<answer>&lt;xmp&gt;&lt;textfield&gt;&lt;/xmp&gt;</answer>
+			<answer>&lt;xmp&gt;&lt;input type="textfield"&gt;&lt;/xmp&gt;</answer>
+		</item>
+		<item>
+			<question points="3">What is the correct HTML for making a drop-down list?</question>
+			<answer correct="y">&lt;xmp&gt;&lt;select&gt;&lt;/xmp&gt;</answer>
+			<answer>&lt;xmp&gt;&lt;input type="dropdown"&gt;&lt;/xmp&gt;</answer>
+			<answer>&lt;xmp&gt;&lt;input type="list"&gt;&lt;/xmp&gt;</answer>
+			<answer>&lt;xmp&gt;&lt;list&gt;&lt;/xmp&gt;</answer>
+		</item>
+		<item>
+			<question points="2">What is the correct HTML for making a text area?</question>
+			<answer>&lt;xmp&gt;&lt;a href=”textarea"&gt;&lt;/xmp&gt;</answer>
+			<answer>&lt;xmp&gt;&lt;input type="textarea"&gt;&lt;/xmp&gt;</answer>
+			<answer>&lt;xmp&gt;&lt;input type="textarea"&gt;&lt;/xmp&gt;</answer>
+			<answer correct="y">&lt;xmp&gt;&lt;textarea&gt;&lt;/xmp&gt;</answer>
+		</item>
+		<item>
+			<question points="1">The HTML global attribute, "contenteditable" is used to:</question>
+			<answer correct="y">specify whether the content of an element should be eitable or not</answer>
+			<answer>update content from the server</answer>
+			<answer>return the position of the first found occurrence of content inside a string</answer>
+			<answer>specify a context menu for an element. The menu appears when a user right-clicks on the element</answer>
+		</item>
+		<item>
+			<question points="3">Which input type defines a slider control?</question>
+			<answer correct="y">range</answer>
+			<answer>slider</answer>
+			<answer>controls</answer>
+			<answer>search</answer>
+		</item>
+		<item>
+			<question points="3">Which HTML element is used to display a scalar measurement within a range?</question>
+			<answer correct="y">&lt;xmp&gt;&lt;meter&gt;&lt;/xmp&gt;</answer>
+			<answer>&lt;xmp&gt;&lt;gauge&gt;&lt;/xmp&gt;</answer>
+			<answer>&lt;xmp&gt;&lt;measure&gt;&lt;/xmp&gt;</answer>
+			<answer>&lt;xmp&gt;&lt;range&gt;&lt;/xmp&gt;</answer>
+		</item>
+		<item>
+			<question points="2">Which HTML element defines navigation links?</question>
+			<answer>&lt;xmp&gt;&lt;navigate&gt;&lt;/xmp&gt;</answer>
+			<answer>&lt;xmp&gt;&lt;navigation&gt;&lt;/xmp&gt;</answer>
+			<answer>&lt;xmp&gt;&lt;a href="nav"&gt;&lt;/xmp&gt;</answer>
+			<answer correct="y">&lt;xmp&gt;&lt;nav&gt;&lt;/xmp&gt;</answer>
+		</item>
+		<item>
+			<question points="1">In HTML, what does the &lt;aside&gt; element define?</question>
+			<answer correct="y">Content aside from the page content</answer>
+			<answer>The ASCII character-set</answer>
+			<answer>To send information between computers on the Internet</answer>
+			<answer>A navigation list to be shown at the left side of the page</answer>
+		</item>
+		<item>
+			<question points="2">Which HTML attribute is used to define inline styles?</question>
+			<answer>class</answer>
+			<answer>styles</answer>
+			<answer correct="y">style</answer>
+			<answer>font</answer>
+		</item>
+		<item>
+			<question points="1">How do you insert a comment in a CSS file?</question>
+			<answer correct="y">/* this is a comment */</answer>
+			<answer>// this is a comment //</answer>
+			<answer>' this is a comment</answer>
+			<answer>// this is a comment</answer>
+		</item>
+		<item>
+			<question points="2">Which CSS property is used to change the text color of an element?</question>
+			<answer>text-color</answer>
+			<answer correct="y">color</answer>
+			<answer>fgcolor</answer>
+			<answer>txtcolor</answer>
+		</item>
+		<item>
+			<question points="2">How do you display hyperlinks without an underline?</question>
+			<answer>a {decoration:no-underline;}</answer>
+			<answer>a {underline:none;}</answer>
+			<answer>a {text-decoration:no-underline;}</answer>
+			<answer correct="y">a {text-decoration:none;}</answer>
+		</item>
+		<item>
+			<question points="3">How do you make each word in a text start with a capital letter?</question>
+			<answer correct="y">text-transform:capitalize</answer>
+			<answer>You can not do that with CSS</answer>
+			<answer>transform:capitalize</answer>
+			<answer>text-style:capitalize</answer>
+		</item>
+		<item>
+			<question points="3">How do you select elements with class name 'test'?</question>
+			<answer correct="y">.test</answer>
+			<answer>test</answer>
+			<answer>#test</answer>
+			<answer>*test</answer>
+		</item>
+		<item>
+			<question points="2">What is the default value of the position property?</question>
+			<answer>relative</answer>
+			<answer>absolute</answer>
+			<answer>fixed</answer>
+			<answer correct="y">static</answer>
+		</item>
+		<item>
+			<question points="1">Inside which HTML element do we put the JavaScript?</question>
+			<answer correct="y">&lt;xmp&gt;&lt;script&gt;&lt;/xmp&gt;</answer>
+			<answer>&lt;xmp&gt;&lt;js&gt;&lt;/xmp&gt;</answer>
+			<answer>&lt;xmp&gt;&lt;javascript&gt;&lt;/xmp&gt;</answer>
+			<answer>&lt;xmp&gt;&lt;scripting&gt;&lt;/xmp&gt;</answer>
+		</item>
+		<item>
+			<question points="3">How do you write "Hello World" in an alert box?</question>
+			<answer correct="y">alert("Hello World");</answer>
+			<answer>msgBox("Hello World");</answer>
+			<answer>msg("Hello World");</answer>
+			<answer>alertBox("Hello World");</answer>
+		</item>
+		<item>
+			<question points="3">How do you find the number with the highest value of x and y?</question>
+			<answer correct="y">Math.max(x,y)</answer>
+			<answer>Math.ceil(x,y)</answer>
+			<answer>top(x,y)</answer>
+			<answer>ceil(x,y)</answer>
+		</item>
+		<item>
+			<question points="2">Which operator is used to assign a value to a variable?</question>
+			<answer>-</answer>
+			<answer>*</answer>
+			<answer>x</answer>
+			<answer correct="y">=</answer>
 		</item>
 	</items>
 </quiz>
