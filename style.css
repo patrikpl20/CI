@@ -416,10 +416,20 @@ background: linear-gradient(45deg, #22A7F0, #2ECC71);
     border: 0.5px solid #ed3d68;
 }
 
+.popup-content table {
+    margin: 0 auto;
+    padding-top: 10px;
+}
+
+.popup-content table th:first-child {
+    padding-top: 5px;
+}
+
 .popupScoreboard h2 {
     font-family: 'MedievalSharp';
 }
 
+.popup-content table th:first-child,
 .popupscor-content table th:first-child {
     text-align: end;
     padding-right: 5px;
