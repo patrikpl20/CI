@@ -1,11 +1,55 @@
 <!DOCTYPE html>
+<script>  
+    //toDo: to enable xml file open chrome with the terminal(cors error): open /Applications/Google\ Chrome.app/ --args --allow-file-access-from-files
+    
+    
+    window.localStorage;
+    localStorage.clear();
+    
+    
+    //get the xml File
+    var getXMLFile = function(path, callback) {
+        var request = new XMLHttpRequest();
+        request.open("GET", path);
+        request.setRequestHeader("Content-Type", "text/xml");
+        request.onreadystatechange = function() {
+            if(request.readyState == 4 ) {
+                callback(request.responseXML);
+            }
+        }
+        request.send();
+    }    
+    
+    //button oclick()
+    function login() {
+        var username, password;
+        username = document.getElementById("name").value;
+        password = document.getElementById("password").value;
+        //console.log("user&pw: " + username + ", " + password);
+        
+        getXMLFile("user.xml", function(xml){
+        //console.log(xml);
+        var i, x;
+            
+        x = xml.getElementsByTagName("username");    
+        for(i=0; i < x.length; i++){
+            if(username == xml.getElementsByTagName("username")[i].childNodes[0].nodeValue){
+                if(password == xml.getElementsByTagName("password")[i].childNodes[0].nodeValue){
+                    alert("succesfully logged in!");
+                    window.open("avatar.html","_self");
+                }   
+            }
+        }
+        })   
+    }
+</script>
 <html lang="en">
     <head>
         <link rel="stylesheet" type="text/css" href="style.css">
         <link href="https://fonts.googleapis.com/css?family=Lato:100,300,300i,400&display=swap" rel="stylesheet" type='text/css'>
         <link href="https://fonts.googleapis.com/css?family=MedievalSharp&display=swap" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="grid.css">
-        <title>Quiz</title>
+        <title>Login to Castle Rallye</title>
         
     </head>
     
@@ -26,7 +70,7 @@
                 <form method="post" action="#" class="contact-form">
                     <input type="text" name="name" id="name" placeholder="Username" required>
                     <input type="password" name="password" id="password" placeholder="Password" required>
-                    <div class="logbtn"><input type="submit" value="Log in"></div>
+                    <div class="logbtn"><input type="submit" value="Log in" onclick="login();"></div>
                 </form>
             </div>
         </div>

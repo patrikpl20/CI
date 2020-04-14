@@ -1,60 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
+
+    <style>
+        
+
+        /* The Close Button */
+        .close {
+          color: #aaa;
+            text-align: end;
+          font-size: 28px;
+          font-weight: bold;
+            margin-top: -12px;
+        }
+
+        .close:hover,
+        .close:focus {
+          color: black;
+          text-decoration: none;
+          cursor: pointer;
+        }
+        
+        .myimage {
+            width: 25%;
+            height: 25%;
+        }
+    </style>
+    
     <head>
         <link rel="stylesheet" type="text/css" href="style.css">
         <link href="https://fonts.googleapis.com/css?family=Lato:100,300,300i,400&display=swap" rel="stylesheet" type='text/css'>
         <link href="https://fonts.googleapis.com/css?family=MedievalSharp&display=swap" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="grid.css">
-        <title>Quiz</title>
-        
-        
+        <title>Quiz</title> 
     </head>
-    
     <body class="avbody">
         <header>
             <nav>
                 <div class="row">
                     <div class="col span-1-of-3"><img src="pics/logocastle.png" alt="logo" class="logo"></div>
                     <div class="col span-1-of-3"><h1>Castle Rallye</h1></div>
-                    <div class="col span-1-of-3"><h2>Logout</h2></div>
+                    <div class="col span-1-of-3"><a class="logout" href="login.html">Logout</a></div>
                 </div>
             </nav>
         </header>
         <div id="particles-js"></div>
+    
+<!-- ###################### popup window ######################-->
+        <div id="popup" class="avpopup">
+          <div class="avpopup-content">
+            <div class="close">&times;</div>
+            <h1>Let's see who starts!</h1>
+            <img id="myimage" class="myimage"><div class="pname" id="name"></div><br>
         
+            <button class="btn-start" onclick="location.href='game.html';">start the game!</button>
+          </div>
+        </div>
+<!-- ##########################################################-->        
+
         <div class="row container">
                 <h2>Choose Player</h2>
                 <div class="divide">
                     <div class="col span-1-of-2">
                         <h3>Player 1:</h3>
-                        <input type="text" name="name" id="name" placeholder="" required>
+                        <input type="text" name="name" id="nameP1" placeholder="P1" required>
                         <div class="avatar">
-                            <div class="col span-1-of-3"><label><input type="radio" id="av1" name="player1"><img src="pics/char/char1.png"></label></div>
-                            <div class="col span-1-of-3"><label><input type="radio" id="av2" name="player1"><img src="pics/char/char2.png"></label></div>
-                            <div class="col span-1-of-3"><label><input type="radio" id="av3" name="player1"><img src="pics/char/char3.png"></label></div>
+                            <div class="col span-1-of-3"><label><input type="radio" id="av11" name="player1" value="char1.png"><img src="pics/char/char1.png"></label></div>
+                            <div class="col span-1-of-3"><label><input type="radio" id="av12" name="player1" value="char2.png"><img src="pics/char/char2.png"></label></div>
+                            <div class="col span-1-of-3"><label><input type="radio" id="av13" name="player1" value="char3.png"><img src="pics/char/char3.png"></label></div>
                         </div>
                         <div class="avatar">
-                            <div class="col span-1-of-3"><label><input type="radio" id="av4" name="player1"><img src="pics/char/char4.png"></label></div>
-                            <div class="col span-1-of-3"><label><input type="radio" id="av5" name="player1"><img src="pics/char/char5.png"></label></div>
-                            <div class="col span-1-of-3"><label><input type="radio" id="av6" name="player1"><img src="pics/char/char6.png"></label></div>
+                            <div class="col span-1-of-3"><label><input type="radio" id="av14" name="player1" value="char4.png"><img src="pics/char/char4.png"></label></div>
+                            <div class="col span-1-of-3"><label><input type="radio" id="av15" name="player1" value="char5.png"><img src="pics/char/char5.png"></label></div>
+                            <div class="col span-1-of-3"><label><input type="radio" id="av16" name="player1" value="char6.png"><img src="pics/char/char6.png"></label></div>
                         </div>
                     </div>
                     <div class="col span-1-of-2">
                         <h3>Player 2:</h3>
-                        <input type="text" name="name" id="name" placeholder="" required>
+                        <input type="text" name="name" id="nameP2" placeholder="P2" required>
                         <div class="avatar">
-                            <div class="col span-1-of-3"><label><input type="radio" id="av1" name="player2"><img src="pics/char/char1.png"></label></div>
-                            <div class="col span-1-of-3"><label><input type="radio" id="av2" name="player2"><img src="pics/char/char2.png"></label></div>
-                            <div class="col span-1-of-3"><label><input type="radio" id="av3" name="player2"><img src="pics/char/char3.png"></label></div>
+                            <div class="col span-1-of-3"><label><input type="radio" id="av21" name="player2" value="char1.png"><img src="pics/char/char1.png"></label></div>
+                            <div class="col span-1-of-3"><label><input type="radio" id="av22" name="player2" value="char2.png"><img src="pics/char/char2.png"></label></div>
+                            <div class="col span-1-of-3"><label><input type="radio" id="av23" name="player2" value="char3.png"><img src="pics/char/char3.png"></label></div>
                         </div>
                         <div class="avatar">
-                            <div class="col span-1-of-3"><label><input type="radio" id="av4" name="player2"><img src="pics/char/char4.png"></label></div>
-                            <div class="col span-1-of-3"><label><input type="radio" id="av5" name="player2"><img src="pics/char/char5.png"></label></div>
-                            <div class="col span-1-of-3"><label><input type="radio" id="av6" name="player2"><img src="pics/char/char6.png"></label></div>
+                            <div class="col span-1-of-3"><label><input type="radio" id="av24" name="player2" value="char4.png"><img src="pics/char/char4.png"></label></div>
+                            <div class="col span-1-of-3"><label><input type="radio" id="av25" name="player2" value="char5.png"><img src="pics/char/char5.png"></label></div>
+                            <div class="col span-1-of-3"><label><input type="radio" id="av26" name="player2" value="char6.png"><img src="pics/char/char6.png"></label></div>
                         </div>
                     </div>
                 </div>
-                <div class="ava-btn"><input type="submit" value="Let's play!"></div>
+                <div class="ava-btn"><input type="submit" value="Let's play!" onclick="getData()"></div>
             </div>
         
         <script type="text/javascript" src="js/particles.js"></script>
@@ -62,6 +97,91 @@
         
        
     </body>
+    
+    <script>
+        var namep1, namep2, avatarp1, avatarp2;
+        var popup = document.getElementById("popup");
+        var span = document.getElementsByClassName("close")[0];
+        window.localStorage;
+        localStorage.clear();
+            
+        span.onclick = function() {
+          popup.style.display = "none";
+        }
+        
+        function getData() {
+            namep1 = document.getElementById("nameP1").value;
+            namep2 = document.getElementById("nameP2").value;
+            if(namep1 == ""){
+                namep1 = "Player1"
+            }
+            if(namep2 == ""){
+                namep2 = "Player2"
+            }   
+            localStorage.setItem("namep1",namep1);
+            localStorage.setItem("namep2",namep2);
+            
+            
+            var i,j;
+            for(i = 1; i < 7; i++){
+                if (document.getElementById('av1'+[i]).checked) {
+                avatarp1 = document.getElementById('av1'+[i]).value;
+                localStorage.setItem("avatarp1",avatarp1);
+                } 
+            }
+            for(j = 1; j < 7; j++){
+                if (document.getElementById('av2'+[j]).checked) {
+                avatarp2 = document.getElementById('av2'+[j]).value;
+                localStorage.setItem("avatarp2",avatarp2);
+                } 
+            }
+            //öffnet das popup fenster und startet die zufallsfunktion
+            popup.style.display = "block";
+            window.setTimeout(randomPlayer, 1000);
+            
+            
+            //alert("Player 1: " + namep1 + " " + avatarp1 + "    Player 2: " + namep2 + " " + avatarp2); 
+            //get Data from WebStorage: localStorage.getItem("namep1");
+            
+            //wenn die seite geschlossen wird, soll der WebStorage gelöscht werden
+            /*$(window).on("beforeunload", function() { 
+            localStorage.clear();
+            })
+            */         
+        }
+        
+        
+        function randomPlayer() {     
+        function getrandomnum(min, max){
+            return Math.floor(Math.random() * (max-min)) + min;
+        }
+        var num = getrandomnum(1,3);
+        var answer, avatar;
+        switch(num) {
+            case 1:
+                answer = namep1;
+                avatar = "pics/char/" + avatarp1;
+                break;
+            case 2:
+                answer = namep2;
+                avatar = "pics/char/" + avatarp2;
+                break;
+        }
+        document.getElementById("name").innerHTML = answer;
+        document.getElementById('myimage').src = avatar;
+            
+        if(answer == namep1){
+            localStorage.setItem("first",namep1);
+            localStorage.setItem("second",namep2);
+        }else{
+            localStorage.setItem("first",namep2);
+            localStorage.setItem("second",namep1);
+        }
+        
+    }
+        
+    </script>
+    
 </html>
 
 <!--
