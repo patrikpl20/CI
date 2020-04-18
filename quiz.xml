@@ -236,7 +236,7 @@
 			<question points="2">What is the correct HTML for making a text area?</question>
 			<answer>&lt;xmp&gt;&lt;a href=”textarea"&gt;&lt;/xmp&gt;</answer>
 			<answer>&lt;xmp&gt;&lt;input type="textarea"&gt;&lt;/xmp&gt;</answer>
-			<answer>&lt;xmp&gt;&lt;input type="textarea"&gt;&lt;/xmp&gt;</answer>
+			<answer>&lt;xmp&gt;&lt;input type="text"&gt;&lt;/xmp&gt;</answer>
 			<answer correct="y">&lt;xmp&gt;&lt;textarea&gt;&lt;/xmp&gt;</answer>
 		</item>
 		<item>
