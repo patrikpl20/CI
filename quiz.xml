@@ -157,10 +157,10 @@
 		</item>
 		<item>
 			<question points="1">Where is the correct place to insert a JavaScript?</question>
-			<answer>The &lt;xmp&gt;&lt;head&gt;&lt;/xmp&gt;section</answer>
-			<answer>The&lt;xmp&gt;&lt;body&gt;&lt;/xmp&gt;section</answer>
+			<answer>The head section</answer>
+			<answer>The body section</answer>
 			<answer>None of the answers is correct.</answer>
-			<answer correct="y">Both the &lt;xmp&gt;&lt;head&gt;&lt;/xmp&gt;section and the &lt;body&gt; section are correct</answer>
+			<answer correct="y">Both the head section and the body section are correct</answer>
 		</item>
 		<item>
 			<question points="2">How do you create a function in JavaScript?</question>
@@ -268,7 +268,7 @@
 			<answer correct="y">&lt;xmp&gt;&lt;nav&gt;&lt;/xmp&gt;</answer>
 		</item>
 		<item>
-			<question points="1">In HTML, what does the &lt;aside&gt; element define?</question>
+			<question points="1">In HTML, what does the &lt;xmp&gt;&lt;aside&gt;&lt;/xmp&gt; element define?</question>
 			<answer correct="y">Content aside from the page content</answer>
 			<answer>The ASCII character-set</answer>
 			<answer>To send information between computers on the Internet</answer>
