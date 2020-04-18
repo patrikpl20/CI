@@ -360,11 +360,13 @@
                     help1 = help1 + totaltimeP1[p1];
                 }
                 averageTimeP1 = help1 / totaltimeP1.length;
+                averageTimeP1 = averageTimeP1.toFixed(2);
 
                 for(p2 = 0; p2 < totaltimeP2.length; p2++){
                     help2 = help2 + totaltimeP2[p2];
                 }
                 averageTimeP2 = help2 / totaltimeP2.length;
+                averageTimeP2 = averageTimeP2.toFixed(2);
 
 
                 popupScoreboard.style.display = "block";
@@ -434,7 +436,6 @@
             timeDiff /= 1000;
             seconds = Math.round(timeDiff);
             seconds = parseInt(seconds);
-            seconds = seconds.toFixed(2);
 
             if(questcount % 2 == 0){
                     totaltimeP1.push(seconds);
